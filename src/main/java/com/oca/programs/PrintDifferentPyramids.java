@@ -1,7 +1,21 @@
 package com.oca.programs;
 
-/**
- * Created by joshimuk on 7/20/2016.
- */
+
 public class PrintDifferentPyramids {
+
+    public static void main(String[] args) {
+
+        printTriangle();
+
+    }
+
+    private static void printTriangle() {
+        for (int i = 0; i < 6; i++) {
+            System.out.println("*");
+            for (int j=6; j > 0; j--) {
+                System.out.println("*");
+            }
+        }
+    }
+
 }

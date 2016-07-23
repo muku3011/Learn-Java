@@ -3,9 +3,7 @@ package com.oca.topics;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by joshimuk on 7/20/2016.
- */
+
 public class RegularExpressionExample {
 
     private void regularExpressionSample1() {
