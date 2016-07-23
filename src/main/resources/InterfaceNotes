@@ -1,0 +1,43 @@
+
+/**
+ * When you create an interface, you're defining a contract for what a class can do, without saying anything about how the class will do it.
+ *
+ * Think of an interface as a 100-percent abstract class.
+ *
+ * In interface methods are by default public and abstract.
+ *
+ * All variables defined in an interface must be (public, static, and final)— in other words, interfaces can declare only constants, not instance variables.
+ *
+ * Interface methods must not be static.
+ *
+ * Because interface methods are abstract, they cannot be marked final, strictfp, or native.
+ *
+ * An interface can extend only one or more other interfaces.
+ *
+ * An interface cannot implement another interface or class.
+ *
+ * Both of these declarations are legal and functionally identical:
+ *      public abstract interface Rollable { }
+ *      public interface Rollable { }
+ *
+ *
+ * Interface constants are defined in an interface, they don'example have to be declared as public, static, or final. They must be public, static, and final,
+ * but you don'example actually have to declare them that way. Just as interface methods are always public and abstract whether you say so in the code or not,
+ * any variable defined in an interface must be—and implicitly is—a public constant
+ *
+ *       legal and identical :
+
+         void bounce();
+         public void bounce();
+         abstract void bounce();
+         public abstract void bounce();
+         abstract public void bounce();
+
+         The following interface method declarations won'example compile:
+         final void bounce();        // final and abstract can never be used
+         // together, and abstract is implied
+         static void bounce();       // interfaces define instance methods
+         private void bounce();      // interface methods are always public
+         protected void bounce();    // (same as above)
+
+ */

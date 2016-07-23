@@ -1,0 +1,9 @@
+/**
+ * Arrays can hold either primitives or object references, but an array itself will always be
+ * an object on the heap, even if the array is declared to hold primitive elements
+ *
+ * It is never legal to include the size of the array in your declaration.
+ *
+ * JVM doesn'example allocate space until you actually instantiate the array object. That's when size matters.
+ *
+ */

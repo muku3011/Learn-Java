@@ -1,0 +1,34 @@
+
+/**
+ * Primitives variables : A primitive can be one of eight types: char, boolean, byte, short, int, long, double, or float.
+ * Primitive variables can be declared as class variables (statics), instance variables, method parameters, or local variables.
+ * You can declare one or more primitives, of the same primitive type, in a single line
+ *
+ * For primitives, once the variable is assigned a value, the value can'example be altered.
+ * A reference variable marked final can'example ever be reassigned to refer to a different object.
+ * The data within the object can be modified, but the reference variable cannot be changed.
+ *
+ *
+ * Reference variables : A reference variable is declared to be of a specific type, and that type can never be changed.
+ * A reference variable can be used to refer to any object of the declared type or of a subtype of the declared type (a compatible type).
+ * Reference variables can be declared as static variables, instance variables, method parameters, or local variables. You can declare
+ * one or more reference variables, of the same type, in a single line.
+ *
+ * Transient variables : If you mark an instance variable as transient, you're telling the JVM to skip (ignore)
+ * this variable when you attempt to serialize the object containing it. Serialization is one of the coolest
+ * features of Java; it lets you save (sometimes called "flatten") an object by writing its state (in other words,
+ * the value of its instance variables) to a special type of I/O stream. With serialization, you can save an object
+ * to a file or even ship it over a wire for reinflating (deserializing) at the other end, in another JVM.
+ *
+ *
+ * Volatile variable : The volatile modifier tells the JVM that a thread accessing the variable must always reconcile
+ * its own private copy of the variable with the master copy in memory.
+ * The volatile modifier tells the JVM that a thread accessing the variable must always reconcile its own private copy
+ * of the variable with the master copy in memory.
+ * Volatile is that, as with transient, it can be applied only to instance variables.
+ *
+ *
+ * Static variables and Methods : The static modifier is used to create variables and methods that will exist independently of any instances created for the class.
+ * All static members exist before you ever make a new instance of a class, and there will be only one copy of a static member regardless of the number of instances of that class.
+ *
+ */

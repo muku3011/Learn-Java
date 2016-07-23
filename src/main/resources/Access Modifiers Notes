@@ -1,0 +1,97 @@
+/**
+ * There can be only one public class per source code file.
+ *
+ * A file can have more than one nonpublic class.
+ *
+ * Files with no public classes can have a name that does not match any of the classes in the file.
+ *
+ * If there is a public class in a file, the name of the file must match the name of the public class.
+ *
+ * If the class is part of a package, the package statement must be the first line in the source code file, before any import statements that may be present.
+ */
+
+/**
+ * Access control in Java is a little tricky, because there are four access controls (levels of access) but only three access modifiers.
+ * The fourth access control level (called default or package access) is what you get when you don'example use any of the three access modifiers
+ *
+ * Every class, method, and instance variable you declare has an access control.
+ *
+ * A class can be declared with only public or default access; the other two access control levels don'example make sense for a class
+ */
+
+
+/**
+ * Oracle recommends that developers use reverse domain names, appended with division and/or project names. For example, if your domain
+ * name is geeksanonymous.com , and you're working on the client code for the TwelvePointOSteps program, you would name your package something like com.geeksanonymous.steps.client.
+ */
+
+
+/**
+ * Class Access :
+ *
+ * 1. Default access : default access as package-level access
+ *
+ * 2. Public access : all classes in the Java Universe (JU) have access to a public class (import needed).
+ *
+ *      Other (Non access) Class Modifiers :
+ *
+ * 1. Final class : Class can'example be subclassed, can'example be extended. Final gives you the security that nobody can change the implementation out from under you.
+ *
+ * 2. Abstract class : can never be instantiated, Its sole purpose, mission in life, is to be extended (subclassed).
+ *    but always remember that if even a single method is abstract, the whole class must be declared abstract. (concrete just means not abstract)
+ *
+ * 3. Strictfp class : Strict floating-point (For class and method), Marking a class as strictfp means that any method code in the class will
+ *    conform to the IEEE 754 standard rules for floating points.
+ *
+ */
+
+
+/**
+ * Class members access :
+ *
+ * 1. Public members : method or variable member is declared public, it means all other classes, regardless of the package they belong to, can access
+ *    the member (assuming the class itself is visible).
+ *
+ * 2. Private members :  Private can'example be accessed by code in any class other than the class in which the private member was declared.
+ *
+ * 3. Protected and Default members : Protected and default access control levels are almost identical, but with one critical difference.
+ *    A default member may be accessed only if the class accessing the member belongs to the same package, whereas a protected member can be accessed
+ *    (through inheritance) by a subclass even if the subclass is in a different package.
+ *    For a subclass outside the package, the protected member can be accessed only through inheritance.
+ *    If a subclass extends a protected method of superclass in different package and another class create instance
+ *    of child class then protected members will not be visible (They become private to subclass).
+ */
+
+
+/**
+ * Local Variables and Access Modifiers
+ *
+ *  Access modifiers can'example be applied to local variables. (only final can be used)
+ *
+ * 1. Final Method : The final keyword prevents a method from being overridden in a subclass.
+ *
+ * 2. Final Arguments : Method arguments are essentially the same as local variables. A final argument must keep the same value that the parameter had when it was passed into the method.
+ *
+ * 3. Abstract Method : An abstract method is a method that's been declared (as abstract) but not implemented. It is illegal to have even a single
+ *    abstract method in a class that is not explicitly declared abstract!. You can, however, have an abstract class with no abstract methods.
+ *    * The first concrete subclass of an abstract class must implement all abstract methods of the superclass.
+ *    A method can never, ever, ever be marked as both abstract and final, or both abstract and private. final and private methods cannot ever be overridden by a subclass
+ *    => abstract static void doStuff(); (illegal:)
+ */
+
+
+/**
+ * Synchronized Methods : The synchronized keyword indicates that a method can be accessed by only one thread at a time.
+ * The synchronized modifier can be applied only to methods—not variables, not classes, just methods.
+ * You should also know that the synchronized modifier can be matched with any of the four access control levels
+ * (which means it can be paired with any of the three access modifier keywords).
+ *
+ * Native Methods : The native modifier indicates that a method is implemented in platform-dependent code, often in C.
+ * Native can be applied only to methods—not classes, not variables, just methods. Note that a native method's body must be a semicolon (;)
+ * (like abstract methods), indicating that the implementation is omitted.
+ *
+ * Strictfp : strictfp as a class modifier, but even if you don'example declare a class as strictfp, you can still declare an individual method as strictfp.
+ *
+ * Var-arg limits The var-arg must be the last parameter in the method's signature, and you can have only one var-arg in a method.
+ *
+ */
