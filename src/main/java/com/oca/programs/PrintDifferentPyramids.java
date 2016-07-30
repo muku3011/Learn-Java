@@ -4,18 +4,27 @@ package com.oca.programs;
 public class PrintDifferentPyramids {
 
     public static void main(String[] args) {
-
-        printTriangle();
-
+        //printLeftPyramid(5);
+        printRightPyramid(5);
     }
 
-    private static void printTriangle() {
-        for (int i = 0; i < 6; i++) {
-            System.out.println("*");
-            for (int j=6; j > 0; j--) {
-                System.out.println("*");
+    private static void printLeftPyramid(int noOfRows) {
+        for (int i = 0; i < noOfRows; i++) {
+            System.out.println();
+            for (int j = 0; j <= i; j++) {
+                System.out.print("*");
             }
         }
     }
 
+    private static void printRightPyramid(int noOfRows) {
+        for (int i = noOfRows; i > 0; i--) {
+            System.out.print(" ");
+            System.out.print(i);
+            for (int j = 0; j < i ; j++) {
+                System.out.print("*");
+                System.out.println();
+            }
+        }
+    }
 }
