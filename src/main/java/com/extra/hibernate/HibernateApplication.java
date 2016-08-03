@@ -7,7 +7,7 @@ import java.util.Date;
 public class HibernateApplication {
 
     public static void main(String[] args) {
-        System.out.println("Maven + Hibernate + Oracle");
+        System.out.println("Hibernate + Oracle");
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         session.beginTransaction();

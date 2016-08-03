@@ -30,12 +30,12 @@ class RunReflection {
 
         Class aClass = Class.forName("com.extra.reflection.DemoClass");
 
-        Method [] methods = aClass.getDeclaredMethods();
-        for(Method method : methods) {
+        Method[] methods = aClass.getDeclaredMethods();
+        for (Method method : methods) {
             System.out.println(method.getName());
         }
 
-        Field [] fields = aClass.getDeclaredFields();
+        Field[] fields = aClass.getDeclaredFields();
         for (Field field : fields) {
             System.out.println(field.getName());
         }
