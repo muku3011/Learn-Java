@@ -12,7 +12,17 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <org.springframework.version>3.2.5.RELEASE</org.springframework.version>
+        <junit.version>4.11</junit.version>
+        <mail.version>1.4.5</mail.version>
+        <smtp.version>1.5.2</smtp.version>
+        <pdfbox.version>1.8.8</pdfbox.version>
+        <unrest.version>1.4.9</unrest.version>
+        <quartz.version>2.2.1</quartz.version>
+        <ojdbc.version>10.2.0.4.0</ojdbc.version>
+        <hibernate.version>4.3.2.Final</hibernate.version>
+        <spring.version>3.2.5.RELEASE</spring.version>
+        <maven.compiler.version>3.5.1</maven.compiler.version>
+        <java.compiler.version>1.8</java.compiler.version>
     </properties>
 
     <dependencies>
@@ -20,7 +30,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -28,54 +38,55 @@
         <dependency>
             <groupId>com.sun.mail</groupId>
             <artifactId>javax.mail</artifactId>
-            <version>1.4.5</version>
+            <version>${mail.version}</version>
         </dependency>
 
         <!--Mailing protocol SMTP protocol-->
         <dependency>
             <groupId>com.sun.mail</groupId>
             <artifactId>smtp</artifactId>
-            <version>1.5.2</version>
+            <version>${smtp.version}</version>
         </dependency>
 
         <!--PDF handling API-->
         <dependency>
             <groupId>org.apache.pdfbox</groupId>
             <artifactId>pdfbox</artifactId>
-            <version>1.8.8</version>
+            <version>${pdfbox.version}</version>
         </dependency>
 
         <!--Lightweight HTTP libraries-->
         <dependency>
             <groupId>com.mashape.unirest</groupId>
             <artifactId>unirest-java</artifactId>
-            <version>1.4.9</version>
+            <version>${unrest.version}</version>
         </dependency>
 
         <!--Quartz job libraries-->
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
-            <version>2.2.1</version>
+            <version>${quartz.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz-jobs</artifactId>
-            <version>2.2.1</version>
+            <version>${quartz.version}</version>
         </dependency>
 
         <!--Oracle jdbc API-->
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc14</artifactId>
-            <version>10.2.0.4.0</version>
+            <version>${ojdbc.version}</version>
         </dependency>
 
         <!--Hibernate libraries-->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>4.3.2.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
 
         <!--Spring libraries-->
@@ -83,14 +94,14 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>3.2.5.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <!-- Bean Factory and JavaBeans utilities (depends on spring-core). Define this if you use Spring Bean APIs-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>${org.springframework.version}</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <!-- Application Context (depends on spring-core, spring-expression, spring-aop, spring-beans)
@@ -98,7 +109,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${org.springframework.version}</version>
+            <version>${spring.version}</version>
         </dependency>
 
     </dependencies>
@@ -110,10 +121,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
+                <version>${maven.compiler.version}</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>${java.compiler.version}</source>
+                    <target>${java.compiler.version}</target>
                 </configuration>
             </plugin>
         </plugins>
