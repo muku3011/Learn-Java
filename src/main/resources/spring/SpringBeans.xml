@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+<!--    &lt;!&ndash; A simple bean definition &ndash;&gt;
+    <bean id="..." class="...">
+        &lt;!&ndash; collaborators and configuration for this bean go here &ndash;&gt;
+    </bean>
+
+    &lt;!&ndash; A bean definition with lazy init set on &ndash;&gt;
+    <bean id="..." class="..." lazy-init="true">
+        &lt;!&ndash; collaborators and configuration for this bean go here &ndash;&gt;
+    </bean>
+
+    &lt;!&ndash; A bean definition with initialization method &ndash;&gt;
+    <bean id="..." class="..." init-method="...">
+        &lt;!&ndash; collaborators and configuration for this bean go here &ndash;&gt;
+    </bean>
+
+    &lt;!&ndash; A bean definition with destruction method &ndash;&gt;
+    <bean id="..." class="..." destroy-method="...">
+        &lt;!&ndash; collaborators and configuration for this bean go here &ndash;&gt;
+    </bean>-->
+
+    <!-- more bean definitions go here -->
+
+    <bean id="firstBean" class="com.extra.spring.FirstBean" scope="singleton">
+    </bean>
+
+</beans>

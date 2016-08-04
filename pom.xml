@@ -7,17 +7,124 @@
     <groupId>com.learn.java</groupId>
     <artifactId>learn-java</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
+    <name>Learn Java</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.version>4.11</junit.version>
+        <mail.version>1.4.5</mail.version>
+        <smtp.version>1.5.2</smtp.version>
+        <pdfbox.version>1.8.8</pdfbox.version>
+        <unrest.version>1.4.9</unrest.version>
+        <quartz.version>2.2.1</quartz.version>
+        <ojdbc.version>10.2.0.4.0</ojdbc.version>
+        <hibernate.version>4.3.2.Final</hibernate.version>
+        <spring.version>3.2.5.RELEASE</spring.version>
+        <maven.compiler.version>3.5.1</maven.compiler.version>
+        <java.compiler.version>1.8</java.compiler.version>
+    </properties>
+
+    <dependencies>
+        <!--Junit dependency, only required for test that's why scope is test-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--Java X mailing API-->
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>${mail.version}</version>
+        </dependency>
+
+        <!--Mailing protocol SMTP protocol-->
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>smtp</artifactId>
+            <version>${smtp.version}</version>
+        </dependency>
+
+        <!--PDF handling API-->
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>${pdfbox.version}</version>
+        </dependency>
+
+        <!--Lightweight HTTP libraries-->
+        <dependency>
+            <groupId>com.mashape.unirest</groupId>
+            <artifactId>unirest-java</artifactId>
+            <version>${unrest.version}</version>
+        </dependency>
+
+        <!--Quartz job libraries-->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>${quartz.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz-jobs</artifactId>
+            <version>${quartz.version}</version>
+        </dependency>
+
+        <!--Oracle jdbc API-->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc14</artifactId>
+            <version>${ojdbc.version}</version>
+        </dependency>
+
+        <!--Hibernate libraries-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <!--Spring libraries-->
+        <!-- Core utilities used by other modules. Define this if you use Spring Utility APIs -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- Bean Factory and JavaBeans utilities (depends on spring-core). Define this if you use Spring Bean APIs-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- Application Context (depends on spring-core, spring-expression, spring-aop, spring-beans)
+        This is the central artifact for Spring's Dependency Injection Container and is generally always defined-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+    </dependencies>
+
 
     <build>
         <plugins>
+            <!--Maven compiler plugin and Java compile version-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
+                <version>${maven.compiler.version}</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>${java.compiler.version}</source>
+                    <target>${java.compiler.version}</target>
                 </configuration>
             </plugin>
         </plugins>
