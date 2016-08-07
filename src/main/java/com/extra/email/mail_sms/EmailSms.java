@@ -24,7 +24,7 @@ public class EmailSms {
 	
 /*	private static final String HOST_GMAIL = "74.125.130.109";
 	private static final String USER_NAME_GMAIL = "muku3011@gmail.com";
-	private static final String USER_PASSWORD_GMAIL = "lalita_3011";
+	private static final String USER_PASSWORD_GMAIL = "";
 	private static final int PORT_GMAIL = 465;*/
 
 	private static final String HOST_LIVE = "65.55.176.126";

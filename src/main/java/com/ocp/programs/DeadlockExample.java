@@ -1,4 +1,4 @@
-package com.ocp.topics.synchronization;
+package com.ocp.programs;
 
 public class DeadlockExample {
 
