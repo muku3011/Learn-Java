@@ -1,4 +1,4 @@
-package com.ocp.topics.synchronization;
+package com.ocp.topics.multi_threading.synchronization;
 
 class SynchronizationBlockExample {
 

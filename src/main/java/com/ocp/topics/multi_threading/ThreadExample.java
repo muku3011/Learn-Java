@@ -1,4 +1,4 @@
-package com.ocp.topics.synchronization;
+package com.ocp.topics.multi_threading;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,13 +67,12 @@ public class ThreadExample {
     public static void main(String[] args) {
         ExtendingThread thread = new ExtendingThread();
         thread.setName("Extending thread :)");
-        //thread.start();
+        thread.start();
 
 
         Thread thread1 = new Thread(new ImplementingRunnable());
         thread1.setName("Implementing runnable");
         //thread1.start();
-
 
         ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(2);
         List<Future<Integer>> resultList = new ArrayList<>();

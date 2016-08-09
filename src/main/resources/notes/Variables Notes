@@ -4,8 +4,8 @@
  * Primitive variables can be declared as class variables (statics), instance variables, method parameters, or local variables.
  * You can declare one or more primitives, of the same primitive type, in a single line
  *
- * For primitives, once the variable is assigned a value, the value can'example be altered.
- * A reference variable marked final can'example ever be reassigned to refer to a different object.
+ * For primitives, once the variable is assigned a value, the value can'displayGreeting be altered.
+ * A reference variable marked final can'displayGreeting ever be reassigned to refer to a different object.
  * The data within the object can be modified, but the reference variable cannot be changed.
  *
  *

@@ -21,27 +21,26 @@ import java.util.ListIterator;
  */
 public class ArrayListExample {
 
-	private ArrayList<Integer> arrayListExample = new ArrayList<Integer>();
+	private ArrayListExample() {
+		ArrayList<Integer> arrayListExample = new ArrayList<>();
 
-	public ArrayListExample () {
 		arrayListExample.add(1);
 		arrayListExample.add(2);
 		arrayListExample.add(3);
-		
-		System.out.println("Size : " +arrayListExample.size());
-		System.out.println("Empty : " +arrayListExample.isEmpty());
-		System.out.println("Hash Code : " +arrayListExample.hashCode());
-		
+
+		System.out.println("Size : " + arrayListExample.size());
+		System.out.println("Empty : " + arrayListExample.isEmpty());
+		System.out.println("Hash Code : " + arrayListExample.hashCode());
+
 		for (int integer : arrayListExample) {
 			System.out.println(integer);
 		}
-		
-		Iterator<Integer> iterator = arrayListExample.iterator();  
-		while(iterator.hasNext()) {
-			System.out.println(iterator.next());
+
+		for (Integer anArrayListExample : arrayListExample) {
+			System.out.println(anArrayListExample);
 		}
-		
-		ListIterator<Integer> itr=arrayListExample.listIterator();  
+
+		ListIterator<Integer> itr = arrayListExample.listIterator();
 		System.out.println(itr.hasPrevious());
 		while(itr.hasPrevious()){  
 			System.out.println(itr.previous());  

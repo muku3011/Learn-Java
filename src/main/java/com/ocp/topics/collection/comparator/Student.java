@@ -7,14 +7,14 @@ package com.ocp.topics.collection.comparator;
  * Comparable interface has only one method and that is compareTo().
  */
 class Student {
-	private int rollno;
-	private String name;
-	private int age;
+    private int rollNo;
+    private String name;
+    private int age;
 
-	public Student(int rollno, String name, int age) {
-		this.setRollno(rollno);
-		this.setName(name);
-		this.setAge(age);
+    Student(int rollNo, String name, int age) {
+        this.setRollNo(rollNo);
+        this.setName(name);
+        this.setAge(age);
 	}
 
 	public String getName() {
@@ -25,18 +25,19 @@ class Student {
 		this.name = name;
 	}
 
-	public int getRollno() {
-		return rollno;
-	}
+    int getRollNo() {
+        return rollNo;
+    }
 
-	public void setRollno(int rollno) {
-		this.rollno = rollno;
-	}
-	public int getAge() {
-		return age;
-	}
+    private void setRollNo(int rollNo) {
+        this.rollNo = rollNo;
+    }
 
-	public void setAge(int age) {
-		this.age = age;
-	}
+    int getAge() {
+        return age;
+    }
+
+    private void setAge(int age) {
+        this.age = age;
+    }
 }

@@ -1,4 +1,4 @@
-package com.ocp.topics.synchronization;
+package com.ocp.topics.multi_threading.inter_thread_communication;
 
 /**
  *  Wait and Notify()
