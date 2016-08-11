@@ -69,7 +69,6 @@ public class ThreadExample {
         thread.setName("Extending thread :)");
         thread.start();
 
-
         Thread thread1 = new Thread(new ImplementingRunnable());
         thread1.setName("Implementing runnable");
         //thread1.start();

@@ -25,7 +25,7 @@ class MyNewThread extends Thread {
     }
 
     public void run() {
-        DisplayStaticGreeting.wishBirthday(wishTo);
+        displayGreeting.wishBirthday(wishTo);
     }
 }
 

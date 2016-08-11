@@ -14,7 +14,7 @@ import java.util.Set;
  * The Properties class provides methods to get data from properties file and store data into properties file.
  * Moreover, it can be used to get properties of system.
  */
-public class PopertiesExample 
+public class PropertiesExample
 {
 	public static void main(String args[]) throws IOException  {
 	    System.out.println("Properties from file : ");

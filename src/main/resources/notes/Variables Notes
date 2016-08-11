@@ -17,7 +17,7 @@
  * Transient variables : If you mark an instance variable as transient, you're telling the JVM to skip (ignore)
  * this variable when you attempt to serialize the object containing it. Serialization is one of the coolest
  * features of Java; it lets you save (sometimes called "flatten") an object by writing its state (in other words,
- * the value of its instance variables) to a special type of I/O stream. With serialization, you can save an object
+ * the value of its instance variables) to a special type of I/O stream. With serialization_externalization, you can save an object
  * to a file or even ship it over a wire for reinflating (deserializing) at the other end, in another JVM.
  *
  *
