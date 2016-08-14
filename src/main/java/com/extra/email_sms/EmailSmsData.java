@@ -1,4 +1,4 @@
-package com.extra.email;
+package com.extra.email_sms;
 
 public class EmailSmsData {
 
@@ -9,6 +9,7 @@ public class EmailSmsData {
     private String mailBody;
 
     //SMS specific data
+    private String smsUserName;
     private String smsToNumber;
     private String smsMessage;
     private String smsFromNumber;
@@ -69,4 +70,12 @@ public class EmailSmsData {
         this.smsFromNumber = smsFromNumber;
     }
 
+
+    public String getSmsUserName() {
+        return smsUserName;
+    }
+
+    public void setSmsUserName(String smsUserName) {
+        this.smsUserName = smsUserName;
+    }
 }
