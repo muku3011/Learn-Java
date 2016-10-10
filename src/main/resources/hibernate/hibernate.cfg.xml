@@ -24,7 +24,7 @@
         <property name="hbm2ddl.auto">create</property>
 
         <!--Define Path of all the Entities-->
-        <mapping class="com.extra.hibernate.DatabaseUser"/>
+        <mapping class="com.xtra.hibernate.DatabaseUser"/>
 
         <!-- Mapping resource in case of XML files are used not annotations-->
         <!-- <mapping resource="employee.hbm.xml"/>-->

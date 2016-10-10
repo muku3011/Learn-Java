@@ -1,7 +1,7 @@
 package com.ocp.topics.multi_threading.synchronization;
 
 class DisplayStaticGreeting {
-    // Try removing static synchronized from method declaration, order of the output will become un-ordered
+    // Try removing static synchronized from method a_declaration, order of the output will become un-ordered
     static synchronized void wishBirthday(String wishTo) {           //Static Synchronized method
         for (int i = 1; i <= 5; i++) {
             System.out.print("Very Happy Birthday : ");

@@ -15,9 +15,10 @@
         <junit.version>4.11</junit.version>
         <mail.version>1.4.5</mail.version>
         <smtp.version>1.5.2</smtp.version>
+        <javaee.version>6.0</javaee.version>
         <pdfbox.version>1.8.8</pdfbox.version>
         <unrest.version>1.4.9</unrest.version>
-        <quartz.version>2.2.1</quartz.version>
+        <quartz.version>2.2.3</quartz.version>
         <ojdbc.version>10.2.0.4.0</ojdbc.version>
         <hibernate.version>4.3.2.Final</hibernate.version>
         <spring.version>3.2.5.RELEASE</spring.version>
@@ -75,6 +76,13 @@
             <version>${quartz.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${javaee.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
         <!--Oracle jdbc API-->
         <dependency>
             <groupId>com.oracle</groupId>
@@ -112,8 +120,14 @@
             <version>${spring.version}</version>
         </dependency>
 
-    </dependencies>
+        <!-- Active MQ -->
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-all</artifactId>
+            <version>5.14.0</version>
+        </dependency>
 
+    </dependencies>
 
     <build>
         <plugins>
