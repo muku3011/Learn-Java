@@ -1,7 +1,7 @@
 package com.ocp.topics.multi_threading.synchronization;
 
 class DisplayGreeting {
-    // Try removing synchronized from method a_declaration, order of the output will become un-ordered
+    // Try removing synchronized from method datatypes, order of the output will become un-ordered
     synchronized void wishBirthday(String wishTo) {           //Synchronized method
         for (int i = 1; i <= 5; i++) {
             System.out.print("Happy Birthday : ");

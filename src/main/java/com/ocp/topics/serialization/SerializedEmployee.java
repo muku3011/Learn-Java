@@ -7,6 +7,7 @@ class SerializedEmployee implements Serializable {
     private String name;
     private String address;
     private transient int ssn;
+    private final transient int ssn_id = 10;
     private static int number;
 
     public String getName() {
@@ -39,5 +40,9 @@ class SerializedEmployee implements Serializable {
 
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    public int getSsn_id() {
+        return ssn_id;
     }
 }

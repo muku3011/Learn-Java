@@ -13,11 +13,13 @@ public class ReverseString {
 
         for (int i = 0; i < (chatArray.length / 2); i++) {
             char temp = chatArray[i];
-            chatArray[i] = chatArray[(chatArray.length-1)-i];
-            chatArray[(chatArray.length-1)-i] = temp;
+            chatArray[i] = chatArray[(chatArray.length - 1) - i];
+            chatArray[(chatArray.length - 1) - i] = temp;
         }
 
-        System.out.println("Original String is : "+originalString);
-        System.out.println("Revere String is : "+new String(chatArray));
+        System.out.println("Original String is : " + originalString);
+        System.out.println("Revere String is : " + new String(chatArray));
+
+
     }
 }

@@ -64,10 +64,6 @@ class TestImmutableClass {
         System.out.println("Date            : "+immutableExample.getDate());
         System.out.println("Mutable class   : "+immutableExample.getMutableClass().getName());
 
-        //immutableExample.getAnInt() = 6;
-        //immutableExample.getString() = "string updated";
-        //immutableExample.getInteger() = 50;
-        //immutableExample.getStringList().add("third");
         immutableExample.getDate().setTime(99999);
         immutableExample.getMutableClass().setName("Joshi");
 

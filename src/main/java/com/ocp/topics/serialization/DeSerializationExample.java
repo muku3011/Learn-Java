@@ -27,5 +27,6 @@ public class DeSerializationExample {
         System.out.println("Address: " + serializedEmployee.getAddress());
         System.out.println("SSN: " + serializedEmployee.getSsn());
         System.out.println("Number: " + serializedEmployee.getNumber());
+        System.out.println("SSN ID: " + serializedEmployee.getSsn_id());
     }
 }
