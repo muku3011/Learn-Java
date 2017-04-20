@@ -1,7 +1,7 @@
 # Learn-Java
-Topics and programs covered for OCA and OCP JP
+Topics and programs covering most of the Java stack
 
-Will try to cover each and every topic related to Java exams with proper programs.
+Will try to cover each and every topic related to Java.
 
 Wiki link for Learn Java project :
 https://github.com/muku3011/Learn-Java/wiki

@@ -1,14 +1,12 @@
+import org.junit.Test;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegularExpressionExample {
 
-    public static void main(String[] args) {
-        regularExpressionSample1();
-        regularExpressionSample();
-    }
-
-    private static void regularExpressionSample1() {
+    @Test
+    public void regularExpressionSample1() {
         String text =
                 "This is the text which is to be searched " +
                         "for occurrences of the word 'is'.";
@@ -26,7 +24,8 @@ public class RegularExpressionExample {
         }
     }
 
-    private static void regularExpressionSample() {
+    @Test
+    public void regularExpressionSample() {
         String text = "This is the text to be searched " +
                 "for occurrences of the http:// pattern.";
 

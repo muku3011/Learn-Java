@@ -27,7 +27,7 @@
 
     <!-- more bean definitions go here -->
 
-    <bean id="firstBean" class="com.xtra.spring.FirstBean">
+    <bean id="firstBean" class="com.frameworks.spring.FirstBean">
     </bean>
 
 </beans>

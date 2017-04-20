@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -6,7 +8,8 @@ import java.util.Scanner;
 
 public class TargetGroupUtil {
 
-    public static void main(String[] args) {
+    @Test
+    public void createTargetGroup() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter number of subscribers : ");
         int noOfSubscribers = sc.nextInt();

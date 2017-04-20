@@ -1,8 +1,12 @@
+import org.junit.Test;
+
 import java.sql.Time;
 import java.text.ParseException;
 
 public class CalenderExample {
-    public static void main(String[] args) throws ParseException {
+
+    @Test
+    public void calenderExample() throws ParseException {
 
         String currentTime = "07:45:00";
 

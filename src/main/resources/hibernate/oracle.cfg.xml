@@ -29,7 +29,7 @@
         <!--Define Path of all the Entities, Example -->
 
         <!-- Mapping resource in case of annotations are used-->
-        <!-- <mapping class="com.xtra.hibernate.sample_project_project.Student"/> -->
+        <!-- <mapping class="com.topicscs.hibernate.sample_project_project.Student"/> -->
 
         <!-- Mapping resource in case of XML files are used not annotations-->
         <!-- <mapping resource="employee.hbm.xml"/>-->

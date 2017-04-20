@@ -27,7 +27,7 @@
         <property name="format_sql">true</property>
 
         <!--Define Path of all the Entities
-        <mapping class="com.xtra.hibernate.sample_project.Student"/>
+        <mapping class="com.topicscs.hibernate.sample_project.Student"/>
         -->
 
         <!-- Mapping resource in case of XML files are used not annotations-->
