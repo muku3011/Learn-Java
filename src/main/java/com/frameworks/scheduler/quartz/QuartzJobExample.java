@@ -14,7 +14,7 @@ public class QuartzJobExample {
 
     public static void main(String[] args) throws InterruptedException, SQLException {
         try {
-            // Grab the Scheduler instance from the Factory
+            // Grab the Scheduler instance from the RunFactory
             SchedulerFactory schedulerFactory = new StdSchedulerFactory("quartz/quartz.properties");
             Scheduler scheduler = schedulerFactory.getScheduler();
 

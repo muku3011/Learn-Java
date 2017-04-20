@@ -1,4 +1,4 @@
-package com.topics.multi_threading;
+package com.topics.multi_threading.thread_creation;
 
 import java.util.ArrayList;
 import java.util.List;

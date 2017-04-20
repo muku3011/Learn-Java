@@ -20,7 +20,7 @@ public class SchedulerBean {
     @PostConstruct
     public void scheduleJobs() {
         try {
-            // Grab the Scheduler instance from the Factory
+            // Grab the Scheduler instance from the RunFactory
             SchedulerFactory schedulerFactory = new StdSchedulerFactory("quartz/quartz.properties");
             scheduler = schedulerFactory.getScheduler();
 
