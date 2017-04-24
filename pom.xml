@@ -158,7 +158,6 @@
             <version>${active.mq.version}</version>
         </dependency>
 
-
     </dependencies>
 
     <build>
