@@ -2,16 +2,15 @@ package com.projects.pdf_writer;
 
 import java.io.IOException;
 
-import org.apache.pdfbox.exceptions.COSVisitorException;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
-import org.apache.pdfbox.pdmodel.edit.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 public class SamplePdf {
-	
-	public static void main(String args[]) throws IOException, COSVisitorException {
+
+	public static void main(String[] args) throws IOException {
 		// Create a document and add a page to it
 		PDDocument document = new PDDocument();
 		PDPage page = new PDPage();
@@ -26,8 +25,8 @@ public class SamplePdf {
 		// Define a text content stream using the selected font, moving the cursor and drawing the text "Hello World"
 		contentStream.beginText();
 		contentStream.setFont( font, 12 );
-		contentStream.moveTextPositionByAmount( 100, 700 );
-		contentStream.drawString( "Hello World" );
+		contentStream.moveTo( 100, 700 );
+		contentStream.showText("Hello World" );
 		contentStream.endText();
 
 		// Make sure that the content stream is closed:

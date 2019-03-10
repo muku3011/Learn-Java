@@ -1,14 +1,12 @@
 package com.projects.pdf_writer;
 
 import java.io.IOException;
-
-import org.apache.pdfbox.exceptions.COSVisitorException;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 
 public class BlankPdf {
 
-	public static void main(String args[]) throws COSVisitorException, IOException {
+	public static void main(String[] args) throws IOException {
 		// Create a new empty document
 		PDDocument document = new PDDocument();
 		

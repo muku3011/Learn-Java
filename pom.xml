@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -16,15 +16,14 @@
         <mail.version>1.4.5</mail.version>
         <smtp.version>1.5.2</smtp.version>
         <javaee.version>6.0</javaee.version>
-        <pdfbox.version>1.8.8</pdfbox.version>
+        <pdfbox.version>2.0.14</pdfbox.version>
         <unrest.version>1.4.9</unrest.version>
-        <spring.version>3.2.5.RELEASE</spring.version>
+        <spring.version>5.1.5.RELEASE</spring.version>
         <maven.compiler.version>3.5.1</maven.compiler.version>
         <java.compiler.version>1.7</java.compiler.version>
         <active.mq.version>5.14.0</active.mq.version>
         <quartz.version>2.2.3</quartz.version>
         <mysql.version>5.1.6</mysql.version>
-        <ojdbc.version>10.2.0.4.0</ojdbc.version>
         <hibernate.version>4.3.2.Final</hibernate.version>
         <ehcache.version>2.10.3</ehcache.version>
         <ehcache.core.version>2.6.11</ehcache.core.version>
@@ -86,13 +85,6 @@
             <artifactId>javaee-api</artifactId>
             <version>${javaee.version}</version>
             <scope>provided</scope>
-        </dependency>
-
-        <!--Oracle jdbc API-->
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc14</artifactId>
-            <version>${ojdbc.version}</version>
         </dependency>
 
         <!--MySql jdbc API-->

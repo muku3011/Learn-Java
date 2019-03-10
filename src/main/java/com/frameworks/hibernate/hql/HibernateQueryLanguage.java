@@ -7,6 +7,7 @@ import java.util.*;
 
 public class HibernateQueryLanguage {
 
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         SessionFactory sessionFactory = HibernateUtil.buildSessionFactory(new ArrayList<Class>(Collections.singletonList(Student.class)));
 
@@ -41,7 +42,7 @@ public class HibernateQueryLanguage {
         System.out.println("Running Query Two");
 
         Query query2 = session2.createQuery("from Student");
-        List<Student> students = (List<Student>) query2.list();
+        List<Student> students = query2.list();
         for (Student stu : students) {
             System.out.println(stu);
         }
@@ -50,7 +51,7 @@ public class HibernateQueryLanguage {
         System.out.println("Running Query Three");
 
         Query query3 = session2.createQuery("from Student where user_id between 10 and 20");
-        List<Student> studentsList = (List<Student>) query3.list();
+        List<Student> studentsList = query3.list();
         for (Student stu : studentsList) {
             System.out.println(stu);
         }
@@ -66,7 +67,7 @@ public class HibernateQueryLanguage {
         System.out.println("Running Query Five");
 
         Query query5 = session2.createQuery("select userId, username, createdBy, createdDate from Student");
-        List<Object[]> studentResultObjectArray = (List<Object[]>) query5.list();
+        List<Object[]> studentResultObjectArray = query5.list();
         for (Object[] studentObject : studentResultObjectArray) {
             System.out.println("Student Id : " + studentObject[0] + " Student name : " + studentObject[0] + " Student created by : " + studentObject[0]);
         }
@@ -77,7 +78,7 @@ public class HibernateQueryLanguage {
 
         Query query6 = session2.createQuery("select userId, username, createdBy, createdDate from Student where username = :b");
         query6.setParameter("b", runtimeValues);
-        List<Object[]> studentResult = (List<Object[]>) query6.list();
+        List<Object[]> studentResult = query6.list();
         for (Object[] studentObject : studentResult) {
             System.out.println("Student Id : " + studentObject[0] + " Student name : " + studentObject[0] + " Student created by : " + studentObject[0]);
         }
