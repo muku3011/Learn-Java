@@ -1,0 +1,4 @@
+
+1. Generic classes are also called template classes
+
+2. Generic method concept is only applicable at compile time, at runtime generic part is removed from class and methods.
