@@ -17,7 +17,7 @@ public class ApplicationTest {
      */
 
 
-    @Test
+    //@Test
     public void givenCredential_fetchStatus() throws TwitterException {
         String tweet = "Tweet using API";
 
