@@ -1,5 +1,4 @@
-package com.programs;
-
+package com.examples;
 
 public class PrintDifferentPyramids {
 

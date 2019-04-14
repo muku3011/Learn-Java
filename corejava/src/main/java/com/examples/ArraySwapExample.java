@@ -1,4 +1,4 @@
-package com.programs;
+package com.examples;
 
 /**
  * WAP to swap half values with one-n-other in an even array.

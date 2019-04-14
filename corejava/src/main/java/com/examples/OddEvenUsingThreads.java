@@ -1,4 +1,4 @@
-package com.programs;
+package com.examples;
 
 public class OddEvenUsingThreads {
     //public static final int max = 10;

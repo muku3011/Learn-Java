@@ -1,4 +1,4 @@
-package com.programs;
+package com.examples;
 
 class ThreadOne extends Thread {
 
