@@ -1,12 +1,15 @@
 #!/bin/bash
 
-AdminUsers=
+DB_USER='username'
+DB_PWD='password'
+
+ADMIN_USERS=
 
 # To fetch all users whose content is not updated.
 function getAdminUsers()
 {
-AdminUsers=`
-SQLPLUS="$ORACLE_HOME/bin/sqlplus -s $DBUSER/$DBUSERPWD"
+ADMIN_USERS=`
+SQLPLUS="$ORACLE_HOME/bin/sqlplus -s $DB_USER/$DB_PWD"
 $SQLPLUS << EOF_SQL_1
         set feedback off
         set heading off;
@@ -21,7 +24,7 @@ EOF_SQL_1`
 # Insert and Update user content
 function updateUserAndContent()
 {
-SQLPLUS="$ORACLE_HOME/bin/sqlplus -s $DBUSER/$DBUSERPWD"
+SQLPLUS="$ORACLE_HOME/bin/sqlplus -s $DB_USER/$DB_PWD"
 $SQLPLUS << EOF_SQL_1
         set feedback off
         set heading off;
@@ -38,7 +41,7 @@ EOF_SQL_1
 # Create content for each empty user
 function createContentForUser
 {
-for userID in ${AdminUsers}; do
+for userID in ${ADMIN_USERS}; do
 
 	printf "Content populated for user Id : [userID] \n"
 

@@ -2,14 +2,13 @@ package com.frameworks.hibernate.hql;
 
 import com.frameworks.hibernate.util.HibernateUtil;
 import org.hibernate.*;
-
 import java.util.*;
 
 public class HibernateQueryLanguage {
 
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
-        SessionFactory sessionFactory = HibernateUtil.buildSessionFactory(new ArrayList<Class>(Collections.singletonList(Student.class)));
+        SessionFactory sessionFactory = HibernateUtil.buildSessionFactory(new ArrayList<>(Collections.singletonList(Student.class)));
 
         /*Adding entries in database*/
         Session session1 = sessionFactory.openSession();
@@ -20,7 +19,7 @@ public class HibernateQueryLanguage {
             student.setCreatedBy("mukesh " + i);
             student.setCreatedDate(new Date());
             student.setUsername("Joshi " + i);
-            //session1.save(student);               //Run only once to populate DB
+            session1.save(student);               //Run only once to populate DB
         }
         session1.getTransaction().commit();
         session1.close();

@@ -11,7 +11,7 @@ import java.util.Date;
 public class HibernateApplication {
 
     public static void main(String[] args) {
-        SessionFactory sessionFactory = HibernateUtil.buildSessionFactory(new ArrayList<Class>(Collections.singletonList(DatabaseUser.class)));
+        SessionFactory sessionFactory = HibernateUtil.buildSessionFactory(new ArrayList<>(Collections.singletonList(DatabaseUser.class)));
 
         Session session = sessionFactory.openSession();
         session.beginTransaction();

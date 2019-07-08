@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.Set;
 
@@ -16,7 +17,7 @@ import java.util.Set;
  */
 public class PropertiesExample
 {
-	public static void main(String args[]) throws IOException  {
+	public static void main(String[] args) throws IOException  {
 	    System.out.println("Properties from file : ");
 		getPropertiesFromFile();
 		System.out.println("System properties : ");
@@ -24,7 +25,7 @@ public class PropertiesExample
 	}
 
 	private static void getPropertiesFromFile() throws IOException {
-		FileReader fileReader=new FileReader("resource/db.properties");  
+		FileReader fileReader=new FileReader(Objects.requireNonNull(ClassLoader.getSystemClassLoader().getResource("jdbc/db.properties")).getFile());
 	      
 	    Properties properties=new Properties();  
 	    properties.load(fileReader);  
@@ -35,13 +36,10 @@ public class PropertiesExample
 	
 	private static void getSystemProperties() {
 		Properties properties=System.getProperties();  
-		Set<Entry<Object, Object>> set = properties.entrySet();  
-	  
-		Iterator<Entry<Object, Object>> iterator = set.iterator();  
-		
-		while(iterator.hasNext()){  
-			Entry<Object, Object> entry = iterator.next();
-			System.out.println(entry.getKey()+" = "+entry.getValue());  
+		Set<Entry<Object, Object>> set = properties.entrySet();
+
+		for (Entry<Object, Object> entry : set) {
+			System.out.println(entry.getKey() + " = " + entry.getValue());
 		}  
 	}
 }

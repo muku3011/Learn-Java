@@ -30,18 +30,10 @@ class InterThreadCommunicationExample {
 }
 
 class RunInterThreadCommunication {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         final InterThreadCommunicationExample c = new InterThreadCommunicationExample();
-        new Thread() {
-            public void run() {
-                c.withdraw(15000);
-            }
-        }.start();
-        new Thread() {
-            public void run() {
-                c.deposit(10000);
-            }
-        }.start();
+        new Thread(() -> c.withdraw(15000)).start();
+        new Thread(() -> c.deposit(10000)).start();
 
     }
 }

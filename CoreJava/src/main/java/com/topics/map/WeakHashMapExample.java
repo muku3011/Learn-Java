@@ -20,8 +20,8 @@ public class WeakHashMapExample
 	
 	public WeakHashMapExample() {
 		
-		String keyHashMap = new String("keyHashMap");
-        String keyWeakHashMap = new String("keyWeakHashMap");
+		String keyHashMap = "keyHashMap";
+        String keyWeakHashMap = "keyWeakHashMap";
         
         hashMap.put(keyHashMap, "Ankita");
         weakHashMap.put(keyWeakHashMap, "Atul");
@@ -36,7 +36,7 @@ public class WeakHashMapExample
         System.out.println("After: hash map value:"+hashMap.get("keyHashMap")+" and weak hash map value:"+weakHashMap.get("keyWeakHashMap"));
 	}
 
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		new WeakHashMapExample();
 	}
 

@@ -87,12 +87,12 @@ class TestEnum {
     static Animals a;
 
     public static void main(String[] args) {
-        System.out.println(a.DOG.sound + " " + a.FISH.sound);
+        System.out.println(Animals.DOG.sound + " " + Animals.FISH.sound);
     }
 }
 
 class TestDays {
-    public enum Days {MON, TUE, WED};
+    public enum Days {MON, TUE, WED}
 
     public static void main(String[] args) {
         for (Days d : Days.values()) ;

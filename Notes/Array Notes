@@ -4,6 +4,6 @@
  *
  * It is never legal to include the size of the array in your declaration.
  *
- * JVM doesn'displayGreeting allocate space until you actually instantiate the array object. That's when size matters.
+ * JVM does'n display Greeting allocate space until you actually instantiate the array object. That's when size matters.
  *
  */

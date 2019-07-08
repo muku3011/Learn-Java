@@ -1,6 +1,5 @@
 package com.frameworks.hibernate.self_join.many_to_many;
 
-
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;

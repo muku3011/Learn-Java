@@ -57,18 +57,17 @@ class TestImmutableClass {
         ImmutableClass immutableClass = new ImmutableClass(anInt, string, integer, stringList, date, mutableClass);
 
         System.out.println("***********Inside immutable class***********");
-        System.out.println("int             : " + immutableClass.getAnInt());
-        System.out.println("string          : " + immutableClass.getString());
-        System.out.println("Integer         : " + immutableClass.getInteger());
-        System.out.println("StringList      : " + immutableClass.getStringList());
-        System.out.println("Date            : " + immutableClass.getDate());
-        System.out.println("Mutable class   : " + immutableClass.getMutableClass().getName());
+        print(immutableClass);
 
         immutableClass.getDate().setTime(99999);
         immutableClass.getMutableClass().setName("Joshi");
 
         System.out.println("\n");
         System.out.println("***********Changing immutable object values***********");
+        print(immutableClass);
+    }
+
+    private static void print(ImmutableClass immutableClass) {
         System.out.println("int             : " + immutableClass.getAnInt());
         System.out.println("string          : " + immutableClass.getString());
         System.out.println("Integer         : " + immutableClass.getInteger());

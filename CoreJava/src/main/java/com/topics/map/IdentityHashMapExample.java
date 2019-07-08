@@ -32,7 +32,7 @@ public class IdentityHashMapExample {
         Iterator<Entry<String, Double>> iterator = set.iterator();
         // Display elements
         while (iterator.hasNext()) {
-            Entry<String, Double> identityHashMapValue = (Entry<String, Double>) iterator.next();
+            Entry<String, Double> identityHashMapValue = iterator.next();
             System.out.print(identityHashMapValue.getKey() + ": ");
             System.out.println(identityHashMapValue.getValue());
         }
@@ -45,7 +45,7 @@ public class IdentityHashMapExample {
     }
 
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         new IdentityHashMapExample();
     }
 }

@@ -9,7 +9,7 @@ import java.util.Collections;
  * It provide only single sorting sequence i.e. you can sort the elements on based on single data member only.
  */
 class ComparatorExample {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         ArrayList<Student> al = new ArrayList<>();
         al.add(new Student(101, "Vijay", 23));
         al.add(new Student(106, "Ajay", 27));

@@ -1,21 +1,18 @@
 package com.twitterapi;
 
-
-import org.junit.Test;
 import twitter4j.DirectMessage;
 import twitter4j.Status;
 import twitter4j.TwitterException;
 
 import static com.twitterapi.Application.destroyDirectMessage;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class ApplicationTest {
 
     /**
      * In order run this jUnit test you need to configure your API details in the twitter4j.properties
      */
-
 
     //@Test
     public void givenCredential_fetchStatus() throws TwitterException {

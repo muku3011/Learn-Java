@@ -33,7 +33,7 @@ public class TreeMapExample
 	 * 1) HashMap is can contain one null key.	--> 	TreeMap can not contain any null key.
 	 * 2) HashMap maintains no order.			-->		TreeMap maintains ascending order.
 	 */
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		new TreeMapExample();
 	}
 

@@ -14,6 +14,7 @@ public class HibernateUtil {
     public static SessionFactory buildSessionFactory(List<Class> annotatedClasses) {
         try {
             Configuration configuration = new Configuration().configure("hibernate/hsqldb.cfg.xml");
+            //Configuration configuration = new Configuration().configure("hibernate/h2.cfg.xml");
             for (Class aClass : annotatedClasses) {
                 configuration.addAnnotatedClass(aClass);
             }

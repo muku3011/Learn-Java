@@ -5,16 +5,17 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.Properties;
 
-public class DBConnection {
+class DBConnection {
 
-    public static Connection getConnection() {
+    static Connection getConnection() {
         Properties props = new Properties();
         FileInputStream fis;
         Connection con = null;
         try {
-            fis = new FileInputStream("src/main/resources/jdbc/db.properties");
+            fis = new FileInputStream(Objects.requireNonNull(ClassLoader.getSystemClassLoader().getResource("jdbc/db.properties")).getFile());
             props.load(fis);
 
             // Load the Driver Class

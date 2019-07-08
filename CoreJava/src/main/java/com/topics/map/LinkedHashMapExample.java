@@ -12,9 +12,9 @@ import java.util.Map.Entry;
  */
 public class LinkedHashMapExample {
 
-	private LinkedHashMap<Integer,String> linkedHashMap=new LinkedHashMap<Integer,String>();  
-	
-	public LinkedHashMapExample() {
+	private LinkedHashMapExample() {
+
+		LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
 		linkedHashMap.put(0, "Mukesh");
 		linkedHashMap.put(1, "Kusum");
 		linkedHashMap.put(2, "Prateek");
@@ -27,7 +27,7 @@ public class LinkedHashMapExample {
 		}
 	}
 	
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		new LinkedHashMapExample();
 	}
 

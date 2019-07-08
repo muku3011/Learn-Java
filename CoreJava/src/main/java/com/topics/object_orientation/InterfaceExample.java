@@ -29,7 +29,7 @@ class ConcretedClass implements InterfaceClass {
 
 interface InterfaceClass extends InterfaceA, InterfaceB {   //By default an interface is public abstract
     int BAR = 56;                                           //By default variables inside interface are public static final
-    public static final int TEST = 42;                      //Actual data_types
+    int TEST = 42;                      //Actual data_types
 
     void updateMethod();
 }

@@ -3,6 +3,7 @@ package com.topics.map.properties;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Properties;
 
 /**
@@ -14,13 +15,13 @@ import java.util.Properties;
  */
 public class CreatePropertiesFileExample
 {
-	public static void main(String args[]) throws IOException  {
+	public static void main(String[] args) throws IOException  {
 	    System.out.println("Properties from file : ");
 		getPropertiesFromFile();
 	}
 
 	private static void getPropertiesFromFile() throws IOException {
-		FileReader fileReader = new FileReader("src/main/resources/properties/read.properties");
+		FileReader fileReader = new FileReader(Objects.requireNonNull(ClassLoader.getSystemClassLoader().getResource("properties/read.properties")).getFile());
 
 	    Properties properties=new Properties();
 	    properties.load(fileReader);
@@ -28,7 +29,7 @@ public class CreatePropertiesFileExample
 	    System.out.println(properties.getProperty("user"));
 	    System.out.println(properties.getProperty("password"));
 
-		FileWriter fileWriter = new FileWriter("src/main/resources/properties/write.properties");
+		FileWriter fileWriter = new FileWriter(Objects.requireNonNull(ClassLoader.getSystemClassLoader().getResource("properties/write.properties")).getFile());
 
         properties.setProperty("user","Created User");
 	    properties.setProperty("password","Created Password");  

@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class DBConnectionTest {
 
-    private static final String QUERY = "SELECT employee_id,firstname,lastname FROM A_EMPLOYEE";
+    private static final String QUERY = "SELECT COUNT(*) FROM DUAL";
 
     public static void main(String[] args) {
 
@@ -16,10 +16,7 @@ public class DBConnectionTest {
              ResultSet rs = stmt.executeQuery(QUERY)) {
 
             while (rs.next()) {
-                int id = rs.getInt("employee_id");
-                String firstName = rs.getString("firstname");
-                String lastName = rs.getString("lastname");
-                System.out.println(id + "," + firstName + "," + lastName);
+                System.out.println(rs);
             }
         } catch (SQLException e) {
             e.printStackTrace();

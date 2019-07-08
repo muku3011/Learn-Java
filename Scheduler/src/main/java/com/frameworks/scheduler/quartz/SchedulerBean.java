@@ -51,12 +51,12 @@ public class SchedulerBean {
     private void printJobsAndTriggers(Scheduler scheduler) throws SchedulerException {
         LOGGER.info("Quartz Scheduler: {}", scheduler.getSchedulerName());
         for (String group : scheduler.getJobGroupNames()) {
-            for (JobKey jobKey : scheduler.getJobKeys(GroupMatcher.<JobKey>groupEquals(group))) {
+            for (JobKey jobKey : scheduler.getJobKeys(GroupMatcher.groupEquals(group))) {
                 LOGGER.info("Found job identified by {}", jobKey);
             }
         }
         for (String group : scheduler.getTriggerGroupNames()) {
-            for (TriggerKey triggerKey : scheduler.getTriggerKeys(GroupMatcher.<TriggerKey>groupEquals(group))) {
+            for (TriggerKey triggerKey : scheduler.getTriggerKeys(GroupMatcher.groupEquals(group))) {
                 LOGGER.info("Found trigger identified by {}", triggerKey);
             }
         }
