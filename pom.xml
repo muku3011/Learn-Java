@@ -31,7 +31,7 @@
         <mail.version>1.4.5</mail.version>
         <smtp.version>1.5.2</smtp.version>
         <javaee.version>6.0</javaee.version>
-        <pdfbox.version>2.0.14</pdfbox.version>
+        <pdfbox.version>[2.0.15,)</pdfbox.version>
         <unrest.version>1.4.9</unrest.version>
 
         <active.mq.version>5.14.0</active.mq.version>
