@@ -9,12 +9,10 @@ public class DeSerializationExample {
 
     public static void main(String[] args) {
         Employee employee;
-        try {
-            FileInputStream fileInputStream = new FileInputStream( Objects.requireNonNull(ClassLoader.getSystemClassLoader().getResource("serialization_externalization/serialization")).getFile());
+        try (FileInputStream fileInputStream = new FileInputStream(Objects.requireNonNull(ClassLoader.getSystemClassLoader().getResource("serialization_externalization/serialization")).getFile())) {
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             employee = (Employee) objectInputStream.readObject();
             objectInputStream.close();
-            fileInputStream.close();
         } catch (IOException i) {
             i.printStackTrace();
             return;

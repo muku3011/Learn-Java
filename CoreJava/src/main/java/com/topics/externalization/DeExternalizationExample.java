@@ -1,6 +1,5 @@
 package com.topics.externalization;
 
-
 import java.io.*;
 import java.util.Objects;
 
@@ -8,12 +7,10 @@ public class DeExternalizationExample {
 
     public static void main(String[] args) {
         Employee employee;
-        try {
-            FileInputStream fileReader = new FileInputStream(Objects.requireNonNull(ClassLoader.getSystemClassLoader().getResource("serialization_externalization/externalization")).getFile());
+        try (FileInputStream fileReader = new FileInputStream(Objects.requireNonNull(ClassLoader.getSystemClassLoader().getResource("serialization_externalization/externalization")).getFile())) {
             ObjectInputStream objectInputStream = new ObjectInputStream(fileReader);
             employee = (Employee) objectInputStream.readObject();
             objectInputStream.close();
-            fileReader.close();
         } catch (IOException i) {
             i.printStackTrace();
             return;

@@ -1,6 +1,7 @@
 package com.topics.assertion;
 
 /**
+ * Two types of assertion, simple and really simple
  * The difference between the two is that the simple version adds a second
  * expression separated from the first (boolean expression) by a colon—this
  * expression's string value is added to the stack trace. Both versions throw an

@@ -32,7 +32,7 @@ enum Enums {
 }
 
 class Coffee {
-    Enums size; // each instance of Coffee has an enum
+    private Enums size; // each instance of Coffee has an enum
     public static void main(String[] args) {
         Coffee drink1 = new Coffee();
         drink1.size = Enums.BIG;
@@ -72,7 +72,6 @@ enum CoffeeSize {
                                         // return for CoffeeSize constants
     }
 }
-
 
 enum Animals {
     DOG("woof"), CAT("meow"), FISH("burble");

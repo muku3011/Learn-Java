@@ -31,24 +31,22 @@ import java.util.Vector;
  */
 public class VectorExample {
 
-	private Vector<String> vectorExample = new Vector<String>();
-
-	public VectorExample () {
+	private VectorExample() {
+		Vector<String> vectorExample = new Vector<>();
 		vectorExample.add("Mukesh");
 		vectorExample.add("Kusum");
 		vectorExample.add("Prateek");
 		
-		System.out.println("Size : " +vectorExample.size());
-		System.out.println("Empty : " +vectorExample.isEmpty());
-		System.out.println("Hash Code : " +vectorExample.hashCode());
+		System.out.println("Size : " + vectorExample.size());
+		System.out.println("Empty : " + vectorExample.isEmpty());
+		System.out.println("Hash Code : " + vectorExample.hashCode());
 		
 		for (String stringValue : vectorExample) {
 			System.out.println(stringValue);
 		}
-		
-		Iterator<String> iterator=vectorExample.iterator();  
-		while (iterator.hasNext()) {
-			System.out.println(iterator.next());
+
+		for (String s : vectorExample) {
+			System.out.println(s);
 		}
 		
 		ListIterator<String> itr = vectorExample.listIterator();
@@ -56,7 +54,7 @@ public class VectorExample {
 			System.out.println(itr.previous());
 		}
 		
-		Enumeration<String> enumeration=vectorExample.elements();  
+		Enumeration<String> enumeration= vectorExample.elements();
 		  while(enumeration.hasMoreElements()){  
 		   System.out.println(enumeration.nextElement());  
 		  }  

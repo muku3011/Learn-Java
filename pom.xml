@@ -12,13 +12,11 @@
 
     <modules>
         <module>CoreJava</module>
-        <module>Scheduler</module>
-        <module>Hibernate</module>
         <module>DataStructure</module>
         <module>DesignPattern</module>
         <module>MultiThreading</module>
-        <module>SampleProjects</module>
         <module>InterviewQuestions</module>
+        <module>Notes</module>
     </modules>
 
     <properties>
@@ -27,29 +25,17 @@
         <java.target.compiler.version>${java.source.compiler.version}</java.target.compiler.version>
         <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
         <junit.jupiter.version>5.4.2</junit.jupiter.version>
-
-        <mail.version>1.4.5</mail.version>
-        <smtp.version>1.5.2</smtp.version>
-        <javaee.version>6.0</javaee.version>
-        <pdfbox.version>[2.0.15,)</pdfbox.version>
-        <unrest.version>1.4.9</unrest.version>
-
-        <active.mq.version>5.14.0</active.mq.version>
-        <quartz.version>2.2.3</quartz.version>
-        <mysql.version>5.1.6</mysql.version>
-
-        <hsqldb.version>1.8.0.10</hsqldb.version>
         <h2.database.version>1.4.199</h2.database.version>
 
-        <hibernate.version>4.3.2.Final</hibernate.version>
-        <ehcache.version>2.10.3</ehcache.version>
-        <ehcache.core.version>2.6.11</ehcache.core.version>
-        <twitter4j-stream.version>4.0.7</twitter4j-stream.version>
-        <bluecove.version>2.1.1</bluecove.version>
+        <asciidoctor.maven.plugin.version>2.0.0-RC.1</asciidoctor.maven.plugin.version>
+        <asciidoctorj.pdf.version>1.5.0-alpha.18</asciidoctorj.pdf.version>
+        <asciidoctorj.version>2.0.0</asciidoctorj.version>
+        <jruby.version>9.2.7.0</jruby.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+
             <!--Junit dependency, only required for test that's why scope is test-->
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
@@ -58,122 +44,12 @@
                 <scope>test</scope>
             </dependency>
 
-            <!--Java X mailing API-->
-            <dependency>
-                <groupId>com.sun.mail</groupId>
-                <artifactId>javax.mail</artifactId>
-                <version>${mail.version}</version>
-            </dependency>
-
-            <!--Mailing protocol SMTP protocol-->
-            <dependency>
-                <groupId>com.sun.mail</groupId>
-                <artifactId>smtp</artifactId>
-                <version>${smtp.version}</version>
-            </dependency>
-
-            <!--PDF handling API-->
-            <dependency>
-                <groupId>org.apache.pdfbox</groupId>
-                <artifactId>pdfbox</artifactId>
-                <version>${pdfbox.version}</version>
-            </dependency>
-
-            <!--Lightweight HTTP libraries-->
-            <dependency>
-                <groupId>com.mashape.unirest</groupId>
-                <artifactId>unirest-java</artifactId>
-                <version>${unrest.version}</version>
-            </dependency>
-
-            <!--Quartz job libraries-->
-            <dependency>
-                <groupId>org.quartz-scheduler</groupId>
-                <artifactId>quartz</artifactId>
-                <version>${quartz.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.quartz-scheduler</groupId>
-                <artifactId>quartz-jobs</artifactId>
-                <version>${quartz.version}</version>
-            </dependency>
-
-            <!--javax API-->
-            <dependency>
-                <groupId>javax</groupId>
-                <artifactId>javaee-api</artifactId>
-                <version>${javaee.version}</version>
-                <scope>provided</scope>
-            </dependency>
-
             <!--In memory database-->
-            <dependency>
-                <groupId>hsqldb</groupId>
-                <artifactId>hsqldb</artifactId>
-                <version>${hsqldb.version}</version>
-            </dependency>
-
             <dependency>
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
                 <version>${h2.database.version}</version>
             </dependency>
-
-            <!--MySql jdbc API-->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.version}</version>
-            </dependency>
-
-            <!--Hibernate libraries-->
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-core</artifactId>
-                <version>${hibernate.version}</version>
-            </dependency>
-
-            <!--Hibernate second level cache-->
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-ehcache</artifactId>
-                <version>${hibernate.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>net.sf.ehcache</groupId>
-                <artifactId>ehcache</artifactId>
-                <version>${ehcache.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>net.sf.ehcache</groupId>
-                <artifactId>ehcache-core</artifactId>
-                <version>${ehcache.core.version}</version>
-            </dependency>
-
-            <!-- Active MQ -->
-            <dependency>
-                <groupId>org.apache.activemq</groupId>
-                <artifactId>activemq-all</artifactId>
-                <version>${active.mq.version}</version>
-            </dependency>
-
-            <!--Twitter API for Java-->
-            <dependency>
-                <groupId>org.twitter4j</groupId>
-                <artifactId>twitter4j-stream</artifactId>
-                <version>${twitter4j-stream.version}</version>
-            </dependency>
-
-            <!--Bluetooth API-->
-            <dependency>
-                <groupId>io.ultreia</groupId>
-                <artifactId>bluecove</artifactId>
-                <version>${bluecove.version}</version>
-            </dependency>
-
         </dependencies>
 
     </dependencyManagement>
@@ -187,7 +63,7 @@
                 <version>${maven.compiler.plugin.version}</version>
                 <configuration>
                     <source>${java.source.compiler.version}</source>
-                    <target>${java.source.compiler.version}</target>
+                    <target>${java.target.compiler.version}</target>
                 </configuration>
             </plugin>
         </plugins>

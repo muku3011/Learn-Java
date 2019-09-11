@@ -7,7 +7,7 @@ class Employee implements Serializable {
     private String name;
     private String address;
     private transient int ssn;
-    private final transient int ssn_id = 10;
+    private final transient int ssn_id = 20;
     private static int number;
 
     public String getName() {

@@ -1,0 +1,8 @@
+= Learn by Examples
+:author: Mukesh Joshi
+:email: mukesh.bciit@gmail.com
+:toc:
+:toc-placement: preamble
+:doctype: book
+
+include::../content/collection.adoc[]

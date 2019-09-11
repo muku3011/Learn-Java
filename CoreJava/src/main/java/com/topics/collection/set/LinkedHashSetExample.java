@@ -1,6 +1,5 @@
 package com.topics.collection.set;
 
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -10,25 +9,23 @@ import java.util.Set;
  */
 public class LinkedHashSetExample {
 
-	private Set<Integer> linkedHashSetExample = new LinkedHashSet<Integer>();
-
-	public LinkedHashSetExample () {
+	private LinkedHashSetExample() {
+		Set<Integer> linkedHashSetExample = new LinkedHashSet<>();
 		linkedHashSetExample.add(3);
 		linkedHashSetExample.add(1);
 		linkedHashSetExample.add(0);
 		linkedHashSetExample.add(2);
 		
-		System.out.println("Size : " +linkedHashSetExample.size());
-		System.out.println("Empty : " +linkedHashSetExample.isEmpty());
-		System.out.println("Hash Code : " +linkedHashSetExample.hashCode());
+		System.out.println("Size : " + linkedHashSetExample.size());
+		System.out.println("Empty : " + linkedHashSetExample.isEmpty());
+		System.out.println("Hash Code : " + linkedHashSetExample.hashCode());
 		
 		for (Integer intValue : linkedHashSetExample) {
 			System.out.println(intValue);
 		}
-		
-		Iterator<Integer> iterator=linkedHashSetExample.iterator();  
-		while (iterator.hasNext()) {
-			System.out.println(iterator.next());
+
+		for (Integer integer : linkedHashSetExample) {
+			System.out.println(integer);
 		}
 	}
 	

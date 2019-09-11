@@ -21,26 +21,24 @@ import java.util.Stack;
  */
 public class StackExample {
 
-	private Stack<String> stackExample = new Stack<String>();
-
-	public StackExample () {
+	private StackExample() {
+		Stack<String> stackExample = new Stack<>();
 		stackExample.push("Mukesh");
 		stackExample.push("Kusum");
 		stackExample.push("Prateek");
 		
-		System.out.println("Size : " +stackExample.size());
-		System.out.println("Empty : " +stackExample.isEmpty());
-		System.out.println("Hash Code : " +stackExample.hashCode());
-		System.out.println("Peek Element : " +stackExample.peek());
-		System.out.println("Pop Element (Remove) : " +stackExample.pop());
+		System.out.println("Size : " + stackExample.size());
+		System.out.println("Empty : " + stackExample.isEmpty());
+		System.out.println("Hash Code : " + stackExample.hashCode());
+		System.out.println("Peek Element : " + stackExample.peek());
+		System.out.println("Pop Element (Remove) : " + stackExample.pop());
 		
 		for (String stringValue : stackExample) {
 			System.out.println(stringValue);
 		}
-		
-		Iterator<String> iterator=stackExample.iterator();  
-		while (iterator.hasNext()) {
-			System.out.println(iterator.next());
+
+		for (String s : stackExample) {
+			System.out.println(s);
 		}
 		
 		ListIterator<String> itr = stackExample.listIterator();

@@ -1,5 +1,6 @@
 package com.interview.questions.string;
 
+import com.interview.questions.StringQuestion;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -7,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class StringQuestionTest {
 
-    private static IString stringQuestion;
+    private static StringQuestion stringQuestion;
 
     @BeforeAll
     static void setUp() {
