@@ -20,7 +20,6 @@ class Square implements Shape {
     }
 }
 
-
 class Circle implements Shape {
 
     @Override

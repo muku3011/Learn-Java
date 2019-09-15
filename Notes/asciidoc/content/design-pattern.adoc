@@ -1,0 +1,938 @@
+<<<
+
+== Design patterns (Gang of Four (GoF))
+
+=== Creational Design Patterns
+
+Everyone knows an object is created by using new keyword in java.
+For example:
+
+[source,text]
+----
+StudentRecord s1 = new StudentRecord();
+----
+
+Hard-Coded code is not the good programming approach, we are creating the instance by using the new keyword.
+Sometimes, the nature of the object must be changed according to the nature of the program.
+In such cases, we must get the help of creational design patterns to provide more general and flexible approach.
+
+==== Factory Method Pattern
+
+A Factory Pattern or Factory Method Pattern says that just define an interface or abstract class for creating an object but let the subclasses decide which class to instantiate.
+In other words, subclasses are responsible to create the instance of the class.
+
+Advantage of Factory Design Pattern
+
+* Factory Method Pattern allows the sub-classes to choose the type of objects to create.
+* It promotes the loose-coupling by eliminating the need to bind application-specific classes into the code.
+That means the code interacts solely with the resultant interface or abstract class, so that it will work with any classes that implement that interface or that extends that abstract class.
+
+Example :
+
+Step 1:
+Create a Plan abstract class.
+
+[source,java]
+----
+abstract class Plan {
+    protected double rate;
+    abstract void getRate();
+
+    public void calculateBill(int units) {
+        System.out.println(units*rate);
+    }
+}
+----
+
+Step 2:
+Create the concrete classes that extends Plan abstract class.
+
+[source,java]
+----
+class  DomesticPlan extends Plan {
+    //@override
+    public void getRate() {
+        rate=3.50;
+    }
+}
+----
+
+[source,java]
+----
+class  CommercialPlan extends Plan {
+   //@override
+    public void getRate() {
+        rate=7.50;
+    }
+}
+----
+
+[source,java]
+----
+class  InstitutionalPlan extends Plan {
+   //@override
+    public void getRate() {
+        rate=5.50;
+    }
+}
+----
+
+Step 3:
+Create a GetPlanFactory to generate object of concrete classes based on given information.
+
+[source,java]
+----
+class GetPlanFactory {
+
+   //use getPlan method to get object of type Plan
+    public Plan getPlan(String planType){
+        if(planType == null || planType.isEmpty()){
+            return null;
+        }
+        if(planType.equalsIgnoreCase("DOMESTICPLAN")) {
+            return new DomesticPlan();
+        }
+        else if(planType.equalsIgnoreCase("COMMERCIALPLAN")){
+            return new CommercialPlan();
+        }
+        else if(planType.equalsIgnoreCase("INSTITUTIONALPLAN")) {
+            return new InstitutionalPlan();
+        }
+        return null;
+    }
+}
+----
+
+Step 4:
+Generate Bill by using the GetPlanFactory to get the object of concrete classes by passing an information such as type of plan DOMESTICPLAN or COMMERCIALPLAN or INSTITUTIONALPLAN.
+
+[source,java]
+----
+class GenerateBill{
+
+    public static void main(String[] args) {
+        GetPlanFactory planFactory = new GetPlanFactory();
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.print("Enter the name of plan for which the bill will be generated: ");
+        String planName=br.readLine();
+
+        System.out.print("Enter the number of units for bill will be calculated: ");
+        int units = Integer.parseInt(br.readLine());
+
+        Plan plan = planFactory.getPlan(planName);
+        System.out.print("Bill amount is: "+plan.calculateBill(units));
+    }
+}
+----
+
+==== Abstract Factory Pattern
+
+Abstract Factory Pattern says that just define an interface or abstract class for creating families of related (or dependent) objects but without specifying their concrete sub-classes.That means Abstract Factory lets a class returns a factory of classes.
+So, this is the reason that Abstract Factory Pattern is one level higher than the Factory Pattern.
+
+Advantage of Abstract Factory Pattern
+
+* Abstract Factory Pattern isolates the client code from concrete (implementation) classes.
+* It eases the exchanging of object families.
+* It promotes consistency among objects.
+
+Example :
+
+Step 1:
+Create a Bank interface
+
+[source,java]
+----
+interface Bank{
+    String getBankName();
+}
+----
+
+Step 2:
+Create concrete classes that implement the Bank interface.
+
+[source,java]
+----
+class HDFC implements Bank{
+    private final String BNAME;
+    public HDFC(){
+        BNAME="HDFC BANK";
+    }
+    public String getBankName() {
+        return BNAME;
+    }
+}
+----
+
+[source,java]
+----
+class ICICI implements Bank{
+    private final String BNAME;
+    ICICI(){
+        BNAME="ICICI BANK";
+    }
+    public String getBankName() {
+        return BNAME;
+    }
+}
+----
+
+[source,java]
+----
+class SBI implements Bank{
+    private final String BNAME;
+    public SBI(){
+        BNAME="SBI BANK";
+    }
+    public String getBankName(){
+        return BNAME;
+    }
+}
+----
+
+Step 3:
+Create the Loan abstract class.
+
+[source,java]
+----
+abstract class Loan {
+    protected double rate;
+
+    abstract void getInterestRate(double rate);
+
+    public void calculateLoanPayment(double loanAmount, int years) {
+        double EMI;
+        int months;
+        months = years * 12;
+        rate = rate / 1200;
+        EMI = ((rate * Math.pow((1 + rate), months)) / ((Math.pow((1 + rate), months)) - 1)) * loanAmount;
+
+        System.out.println("Your monthly EMI is " + EMI + " for amount" + loanAmount);
+    }
+}
+----
+
+Step 4:
+Create concrete classes that extend the Loan abstract class.
+
+[source,java]
+----
+class HomeLoan extends Loan {
+     public void getInterestRate(double r) {
+         rate=r;
+    }
+}
+----
+
+[source,java]
+----
+class BusinessLoan extends Loan {
+    public void getInterestRate(double r) {
+        rate=r;
+    }
+}
+----
+
+[source,java]
+----
+class EducationLoan extends Loan {
+     public void getInterestRate(double r) {
+       rate=r;
+     }
+}
+----
+
+Step 5:
+Create an abstract class (i.e AbstractFactory) to get the factories for Bank and Loan Objects.
+
+[source,java]
+----
+abstract class AbstractFactory {
+    public abstract Bank getBank(String bank);
+    public abstract Loan getLoan(String loan);
+}
+----
+
+Step 6:
+Create the factory classes that inherit AbstractFactory class to generate the object of concrete class based on given information.
+
+[source,java]
+----
+class BankFactory extends AbstractFactory {
+    public Bank getBank(String bank) {
+        if (bank == null) {
+            return null;
+        }
+        if (bank.equalsIgnoreCase("HDFC")) {
+            return new HDFC();
+        } else if (bank.equalsIgnoreCase("ICICI")) {
+            return new ICICI();
+        } else if (bank.equalsIgnoreCase("SBI")) {
+            return new SBI();
+        }
+        return null;
+    }
+
+    public Loan getLoan(String loan) {
+        return null;
+    }
+}
+----
+
+[source,java]
+----
+class LoanFactory extends AbstractFactory {
+    public Bank getBank(String bank) {
+        return null;
+    }
+
+    public Loan getLoan(String loan) {
+        if (loan == null) {
+            return null;
+        }
+        if (loan.equalsIgnoreCase("Home")) {
+            return new HomeLoan();
+        } else if (loan.equalsIgnoreCase("Business")) {
+            return new BussinessLoan();
+        } else if (loan.equalsIgnoreCase("Education")) {
+            return new EducationLoan();
+        }
+        return null;
+    }
+}
+----
+
+Step 7:
+Create a FactoryCreator class to get the factories by passing an information such as Bank or Loan.
+
+[source,java]
+----
+class FactoryCreator {
+     public static AbstractFactory getFactory(String choice){
+      if(choice.equalsIgnoreCase("Bank")){
+         return new BankFactory();
+      } else if(choice.equalsIgnoreCase("Loan")){
+         return new LoanFactory();
+      }
+      return null;
+   }
+}
+----
+
+Step 8:
+Use the FactoryCreator to get AbstractFactory in order to get factories of concrete classes by passing an information such as type.
+
+[source,java]
+----
+class AbstractFactoryPatternExample {
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.print("Enter the name of Bank from where you want to take loan amount: ");
+        String bankName = br.readLine();
+
+        System.out.print("\n");
+        System.out.print("Enter the type of loan e.g. home loan or business loan or education loan : ");
+
+        String loanName = br.readLine();
+        AbstractFactory bankFactory = FactoryCreator.getFactory("Bank");
+        Bank b = bankFactory.getBank(bankName);
+
+        System.out.print("\n");
+        System.out.print("Enter the interest rate for " + b.getBankName() + ": ");
+
+        double rate = Double.parseDouble(br.readLine());
+        System.out.print("\n");
+        System.out.print("Enter the loan amount you want to take: ");
+
+        double loanAmount = Double.parseDouble(br.readLine());
+        System.out.print("\n");
+        System.out.print("Enter the number of years to pay your entire loan amount: ");
+        int years = Integer.parseInt(br.readLine());
+
+        System.out.print("\n");
+        System.out.println("you are taking the loan from " + b.getBankName());
+
+        AbstractFactory loanFactory = FactoryCreator.getFactory("Loan");
+        Loan l = loanFactory.getLoan(loanName);
+        l.getInterestRate(rate);
+        l.calculateLoanPayment(loanAmount, years);
+    }
+}
+----
+
+==== Singleton Pattern
+
+Singleton Pattern says that just"define a class that has only one instance and provides a global point of access to it".
+
+There are two forms of singleton design pattern:
+
+* Eager Instantiation: creation of instance at load time.
+* Lazy Instantiation: creation of instance when required.
+
+Advantage of Singleton design pattern
+
+* Saves memory because object is not created at each request.
+* Only single instance is reused again and again.
+
+Usage of Singleton design pattern
+
+* Singleton pattern is mostly used in multi-threaded and database applications.
+* It is used in logging, caching, thread pools, configuration settings etc.
+
+.Eager initialization
+[source,java]
+----
+class EagerInitialization {
+    //Eager, instance will be created at load time
+    private static EagerInitialization eagerInitialization = new EagerInitialization();
+
+    private eagerInitialization() {
+    }
+
+    public static EagerInitialization getEagerInitialization() {
+        return eagerInitialization;
+    }
+
+    public void doSomething() {
+        //write your code
+    }
+}
+----
+
+.Lazy initialization Double-Checked Locking:
+Following is an optimized version of the lazily initialized singleton where - instead of making the entire method synchronized, we create a synchronized block and wrap only the instantiation part inside the synchronized block
+
+[source,java]
+----
+class LazyInitialization {
+    private static LazyInitialization obj;
+
+    private LazyInitialization() {
+    }
+
+    public static LazyInitialization getLazyInitialization() {
+        if (obj == null) {
+            synchronized (LazyInitialization.class) {
+                if (obj == null) {
+                    //instance will be created at request time
+                    obj = new LazyInitialization();
+                }
+            }
+        }
+        return obj;
+    }
+
+    public void doSomething() {
+        //write your code
+    }
+}
+----
+
+.Bill Pugh Singleton Implementation
+Prior to Java 5, java memory model had a lot of issues and the above approaches used to fail in certain scenarios where too many threads try to get the instance of the Singleton class simultaneously.
+So Bill Pugh came up with a different approach to create the Singleton class using an inner static helper class.
+The Bill Pugh Singleton implementation goes like this:
+
+[source,java]
+----
+public class BillPughSingleton {
+
+    private BillPughSingleton(){}
+
+    private static class SingletonHelper{
+        private static final BillPughSingleton INSTANCE = new BillPughSingleton();
+    }
+
+    public static BillPughSingleton getInstance(){
+        return SingletonHelper.INSTANCE;
+    }
+}
+----
+
+Notice the private inner static class that contains the instance of the singleton class.
+When the singleton class is loaded, SingletonHelper class is not loaded into memory and only when someone calls the getInstance method, this class gets loaded and creates the Singleton class instance.
+
+This is the most widely used approach for Singleton class as it doesnt require synchronization.
+
+.Using Reflection to destroy Singleton Pattern
+Reflection can be used to destroy all the above singleton implementation approaches.
+Let’s see this with an example class.
+
+[source,java]
+----
+public class ReflectionSingletonTest {
+
+    public static void main(String[] args) {
+        EagerInitializedSingleton instanceOne = EagerInitializedSingleton.getInstance();
+        EagerInitializedSingleton instanceTwo = null;
+        try {
+            Constructor[] constructors = EagerInitializedSingleton.class.getDeclaredConstructors();
+            for (Constructor constructor : constructors) {
+                //Below code will destroy the singleton pattern
+                constructor.setAccessible(true);
+                instanceTwo = (EagerInitializedSingleton) constructor.newInstance();
+                break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println(instanceOne.hashCode());
+        System.out.println(instanceTwo.hashCode());
+    }
+}
+----
+
+When you run the above test class, you will notice that hashCode of both the instances is not same that destroys the singleton pattern.
+Reflection is very powerful and used in a lot of frameworks like Spring and Hibernate.
+
+.Enum Singleton
+To overcome this situation with Reflection, Joshua Bloch suggests the use of Enum to implement Singleton design pattern as Java ensures that any enum value is instantiated only once in a Java program.
+Since Java Enum values are globally accessible, so is the singleton.
+The drawback is that the enum type is somewhat inflexible; for example, it does not allow lazy initialization.
+
+[source,java]
+----
+public enum EnumSingleton {
+
+    INSTANCE;
+
+    public static void doSomething(){
+        //do something
+    }
+}
+----
+
+All the enum values are initialized only once at the time of class loading.
+
+.Serialization and Singleton
+Sometimes in distributed systems, we need to implement Serializable interface in Singleton class so that we can store its state in the file system and retrieve it at a later point of time.
+Here is a small singleton class that implements Serializable interface also.
+
+[source,java]
+----
+public class SerializedSingleton implements Serializable{
+
+    private static final long serialVersionUID = -7604766932017737115L;
+
+    private SerializedSingleton(){}
+
+    private static class SingletonHelper{
+        private static final SerializedSingleton instance = new SerializedSingleton();
+    }
+
+    public static SerializedSingleton getInstance(){
+        return SingletonHelper.instance;
+    }
+}
+----
+
+The problem with serialized singleton class is that whenever we deserialize it, it will create a new instance of the class.
+So it destroys the singleton pattern, to overcome this scenario all we need to do it provide the implementation of readResolve() method.
+
+[source,text]
+----
+protected Object readResolve() {
+    return getInstance();
+}
+----
+
+==== Prototype Pattern
+
+Prototype Pattern says that cloning of an existing object instead of creating new one and can also be customized as per the requirement.
+This pattern should be followed, if the cost of creating a new object is expensive and resource intensive.
+
+Advantage of Prototype Pattern
+
+* It hides complexities of creating objects.
+* The clients can get new objects without knowing which type of object it will be.
+* It lets you add or remove objects at runtime.
+
+Usage of Prototype Pattern
+
+* When the classes are instantiated at runtime.
+* When the cost of creating an object is expensive or complicated.
+* When you want to keep the number of classes in an application minimum.
+* When the client application needs to be unaware of object creation and representation.
+
+[source,java]
+----
+interface Prototype {
+     public Prototype getClone();
+}
+----
+
+[source,java]
+----
+class EmployeeRecord implements Prototype {
+
+    private int id;
+    private String name, designation;
+    private double salary;
+    private String address;
+
+    public EmployeeRecord() {
+    }
+
+    public EmployeeRecord(int id, String name, String designation, double salary, String address) {
+        this();
+        this.id = id;
+        this.name = name;
+        this.designation = designation;
+        this.salary = salary;
+        this.address = address;
+    }
+
+    public void showRecord() {
+        System.out.println(id + "\t" + name + "\t" + designation + "\t" + salary + "\t" + address);
+    }
+
+    @Override
+    public Prototype getClone() {
+        return new EmployeeRecord(id, name, designation, salary, address);
+    }
+}
+----
+
+==== Builder Pattern
+
+Builder pattern solves the issue with large number of optional parameters and inconsistent state by providing a way to build the object step-by-step and provide a method that will actually return the final Object.
+
+Let’s see how we can implement builder design pattern in java.
+
+* First of all you need to create a static nested class and then copy all the arguments from the outer class to the Builder class.
+We should follow the naming convention and if the class name is Computer then builder class should be named as ComputerBuilder.
+* Java Builder class should have a public constructor with all the required attributes as parameters.
+* Java Builder class should have methods to set the optional parameters and it should return the same Builder object after setting the optional attribute.
+* The final step is to provide a build() method in the builder class that will return the Object needed by client program.
+For this we need to have a private constructor in the Class with Builder class as argument.
+
+Here is the sample builder pattern example code where we have a Computer class and ComputerBuilder class to build it.
+
+[source,java]
+----
+public class Computer {
+
+    //required parameters
+    private String HDD;
+    private String RAM;
+
+    //optional parameters
+    private boolean isGraphicsCardEnabled;
+    private boolean isBluetoothEnabled;
+
+    public String getHDD() {
+        return HDD;
+    }
+
+    public String getRAM() {
+        return RAM;
+    }
+
+    public boolean isGraphicsCardEnabled() {
+        return isGraphicsCardEnabled;
+    }
+
+    public boolean isBluetoothEnabled() {
+        return isBluetoothEnabled;
+    }
+
+    private Computer(ComputerBuilder builder) {
+        this.HDD = builder.HDD;
+        this.RAM = builder.RAM;
+        this.isGraphicsCardEnabled = builder.isGraphicsCardEnabled;
+        this.isBluetoothEnabled = builder.isBluetoothEnabled;
+    }
+
+    //Builder Class
+    public static class ComputerBuilder {
+
+        // required parameters
+        private String HDD;
+        private String RAM;
+
+        // optional parameters
+        private boolean isGraphicsCardEnabled;
+        private boolean isBluetoothEnabled;
+
+        public ComputerBuilder(String hdd, String ram) {
+            this.HDD = hdd;
+            this.RAM = ram;
+        }
+
+        public ComputerBuilder setGraphicsCardEnabled(boolean isGraphicsCardEnabled) {
+            this.isGraphicsCardEnabled = isGraphicsCardEnabled;
+            return this;
+        }
+
+        public ComputerBuilder setBluetoothEnabled(boolean isBluetoothEnabled) {
+            this.isBluetoothEnabled = isBluetoothEnabled;
+            return this;
+        }
+
+        public Computer build() {
+            return new Computer(this);
+        }
+    }
+}
+----
+
+Notice that Computer class has only getter methods and no public constructor.
+So the only way to get a Computer object is through the ComputerBuilder class.
+
+Here is a builder pattern example test program showing how to use Builder class to get the object.
+
+[source,java]
+----
+public class TestBuilderPattern {
+
+	public static void main(String[] args) {
+		//Using builder to get the object in a single line of code and
+        //without any inconsistent state or arguments management issues
+		Computer comp = new Computer.ComputerBuilder("500 GB", "2 GB").setBluetoothEnabled(true).setGraphicsCardEnabled(true).build();
+	}
+}
+----
+
+Some of the builder pattern example in Java classes are;
+
+* java.lang.StringBuilder#append() (non-synchronized)
+* java.lang.StringBuffer#append() (synchronized)
+
+==== Object Pool Pattern ? (TODO)
+
+=== Structural Design Patterns
+
+Structural patterns provide different ways to create a class structure, for example using inheritance and composition to create a large object from small objects.
+
+==== Adapter Design Pattern
+
+Adapter design pattern is one of the structural design pattern and its used so that two unrelated interfaces can work together.
+The object that joins these unrelated interface is called an Adapter.
+
+One of the great real life example of Adapter design pattern is mobile charger.
+Mobile battery needs 3 volts to charge but the normal socket produces either 120V (US) or 240V (India).
+So the mobile charger works as an adapter between mobile charging socket and the wall socket.
+
+We will try to implement multi-adapter using adapter design pattern in this tutorial.
+
+So first of all we will have two classes – Volt (to measure volts) and Socket (producing constant volts of 120V).
+
+[source,java]
+----
+public class Volt {
+
+	private int volts;
+
+	public Volt(int v){
+		this.volts=v;
+	}
+
+	public int getVolts() {
+		return volts;
+	}
+
+	public void setVolts(int volts) {
+		this.volts = volts;
+	}
+}
+----
+
+[source,java]
+----
+public class Socket {
+
+	public Volt getVolt(){
+		return new Volt(120);
+	}
+}
+----
+
+Now we want to build an adapter that can produce 3 volts, 12 volts and default 120 volts.
+So first of all we will create an adapter interface with these methods.
+
+[source,java]
+----
+public interface SocketAdapter {
+
+	public Volt get120Volt();
+
+	public Volt get12Volt();
+
+	public Volt get3Volt();
+}
+----
+
+While implementing Adapter pattern, there are two approaches – class adapter and object adapter – however both these approaches produce same result.
+
+* Class Adapter – This form uses java inheritance and extends the source interface, in our case Socket class.
+* Object Adapter – This form uses Java Composition and adapter contains the source object.
+
+.Adapter Design Pattern – Class Adapter
+[source,java]
+----
+//Using inheritance for adapter pattern
+public class SocketClassAdapterImpl extends Socket implements SocketAdapter{
+
+	@Override
+	public Volt get120Volt() {
+		return getVolt();
+	}
+
+	@Override
+	public Volt get12Volt() {
+		Volt v= getVolt();
+		return convertVolt(v,10);
+	}
+
+	@Override
+	public Volt get3Volt() {
+		Volt v= getVolt();
+		return convertVolt(v,40);
+	}
+
+	private Volt convertVolt(Volt v, int i) {
+		return new Volt(v.getVolts()/i);
+	}
+}
+----
+
+.Adapter Design Pattern – Object Adapter Implementation
+[source,java]
+----
+public class SocketObjectAdapterImpl implements SocketAdapter{
+
+	//Using Composition for adapter pattern
+	private Socket sock = new Socket();
+
+	@Override
+	public Volt get120Volt() {
+		return sock.getVolt();
+	}
+
+	@Override
+	public Volt get12Volt() {
+		Volt v= sock.getVolt();
+		return convertVolt(v,10);
+	}
+
+	@Override
+	public Volt get3Volt() {
+		Volt v= sock.getVolt();
+		return convertVolt(v,40);
+	}
+
+	private Volt convertVolt(Volt v, int i) {
+		return new Volt(v.getVolts()/i);
+	}
+}
+----
+
+Adapter Design Pattern Example in JDK Some of the adapter design pattern example I could easily find in JDK classes are;
+
+* java.util.Arrays#asList()
+* java.io.InputStreamReader(InputStream) (returns a Reader)
+* java.io.OutputStreamWriter(OutputStream) (returns a Writer)
+
+==== Composite Design Pattern
+
+When we need to create a structure in a way that the objects in the structure has to be treated the same way, we can apply composite design pattern.
+
+Lets understand it with a real life example – A diagram is a structure that consists of Objects such as Circle, Lines, Triangle etc.
+When we fill the drawing with color (say Red), the same color also gets applied to the Objects in the drawing.
+Here drawing is made up of different parts and they all have same operations.
+
+Composite Pattern consists of following objects.
+
+* Base Component – Base component is the interface for all objects in the composition, client program uses base component to work with the objects in the composition.
+It can be an interface or an abstract class with some methods common to all the objects.
+* Leaf – Defines the behaviour for the elements in the composition.
+It is the building block for the composition and implements base component.
+It doesnt’t have references to other Components.
+* Composite – It consists of leaf elements and implements the operations in base component.
+
+.Composite Pattern Base Component
+Composite pattern base component defines the common methods for leaf and composites.
+We can create a class Shape with a method draw(String fillColor) to draw the shape with given color.
+
+[source,java]
+----
+public interface Shape {
+    public void draw(String fillColor);
+}
+----
+
+.Composite Design Pattern Leaf Objects
+Composite design pattern leaf implements base component and these are the building block for the composite.
+We can create multiple leaf objects such as Triangle, Circle etc.
+
+[source,java]
+----
+public class Triangle implements Shape {
+
+	@Override
+	public void draw(String fillColor) {
+		System.out.println("Drawing Triangle with color "+fillColor);
+	}
+}
+----
+
+[source,java]
+----
+public class Circle implements Shape {
+
+	@Override
+	public void draw(String fillColor) {
+		System.out.println("Drawing Circle with color "+fillColor);
+	}
+}
+----
+
+.Composite object
+A composite object contains group of leaf objects and we should provide some helper methods to add or delete leafs from the group.
+We can also provide a method to remove all the elements from the group.
+
+[source,java]
+----
+public class Drawing implements Shape{
+
+	//collection of Shapes
+	private List<Shape> shapes = new ArrayList<Shape>();
+
+	@Override
+	public void draw(String fillColor) {
+		for(Shape sh : shapes)
+		{
+			sh.draw(fillColor);
+		}
+	}
+
+	//adding shape to drawing
+	public void add(Shape s){
+		this.shapes.add(s);
+	}
+
+	//removing shape from drawing
+	public void remove(Shape s){
+		shapes.remove(s);
+	}
+
+	//removing all the shapes
+	public void clear(){
+		System.out.println("Clearing all the shapes from drawing");
+		this.shapes.clear();
+	}
+}
+----
+
+Notice that composite also implements component and behaves similar to leaf except that it can contain group of leaf elements.
+
+Composite Pattern Important Points:
+
+* Composite pattern should be applied only when the group of objects should behave as the single object.
+* Composite design pattern can be used to create a tree like structure.
+
+java.awt.Container#add(Component) is a great example of Composite pattern in java and used a lot in Swing.
+

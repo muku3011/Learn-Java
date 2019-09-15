@@ -7,10 +7,10 @@ package com.topics.collection.list;
  *
  * The elements in the array allocated by new will automatically be initialized to zero (for numeric types), false (for boolean), or null (for reference types)
  *
- * When you clone a single dimensional array, such as Object[], a “deep copy” is performed
+ * When you clone a single dimensional array, such as Object[], a 'deep copy'is performed
  * with the new array containing copies of the original array’s elements as opposed to references.
  *
- * A clone of a multidimensional array (like Object[][]) is a “shallow copy” however,
+ * A clone of a multidimensional array (like Object[][]) is a 'shallow copy' however,
  * which is to say that it creates only a single new array with each element array a reference to an original element array but subarrays are shared.
  *
  *  O(1)	Insert element to the end of the array

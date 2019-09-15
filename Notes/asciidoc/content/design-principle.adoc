@@ -1,0 +1,321 @@
+<<<
+
+== Design Principles
+
+=== SOLID Design Principles
+
+==== [S]ingle Responsibility Principle
+
+Single responsibility means that your class (any entity for that matter, including a method in a class, or a function in structured programming) should only do one thing.
+If your class is responsible for getting users’ data from the database, it shouldn't’t care about displaying the data as well.
+Those are different responsibilities and should be handled separately.
+
+How does this principle help us to build better software?
+Let's see a few of its benefits:
+
+* Testing – A class with one responsibility will have far fewer test cases
+* Lower coupling – Less functionality in a single class will have fewer dependencies
+* Organization – Smaller, well-organized classes are easier to search than monolithic ones
+
+[source,java]
+----
+public class Book {
+
+    private String name;
+    private String author;
+    private String text;
+
+    // methods that directly relate to the book properties
+    public String replaceWordInText(String word){
+        return text.replaceAll(word, text);
+    }
+
+    public boolean isWordInText(String word){
+        return text.contains(word);
+    }
+
+    // methods for writing output to console
+    void printTextToConsole(String text){
+        //our code for formatting and printing the text
+    }
+
+    // method for writing to any other location
+    void printTextToAnotherMedium(String text){
+    }
+}
+----
+
+This code does, however, violate the single responsibility principle we outlined earlier.
+To fix our mess, we should implement a separate class that is concerned only with printing our texts:
+
+[source,java]
+----
+public class BookPrinter {
+
+    // methods for writing output to console
+    void printTextToConsole(String text){
+        //our code for formatting and printing the text
+    }
+
+    // method for writing to any other location
+    void printTextToAnotherMedium(String text){
+    }
+}
+----
+
+==== [O]pen/Closed Principle
+
+The Open/Closed Principle states that a module should be open for extension, but closed for modification.
+That means you should be able to extend a module with new features not by changing its source code, but by adding new code instead.
+The goal is to keep working, tested code intact, so over time, it becomes bug resistant.
+
+[source,java]
+----
+public class Guitar {
+
+    private String make;
+    private String model;
+    private int volume;
+
+    //Constructors, getters & setters
+}
+----
+
+After a few months, we decide the Guitar is a little bit boring and could do with an awesome flame pattern to make it look a bit more ‘rock and roll'.
+At this point, it might be tempting to just open up the Guitar class and add a flame pattern – but who knows what errors that might throw up in our application.
+
+Instead, let's stick to the open-closed principle and simply extend our Guitar class:
+
+[source,java]
+----
+public class SuperCoolGuitarWithFlames extends Guitar {
+
+    private String flameColor;
+
+    //constructor, getters + setters
+}
+----
+
+By extending the Guitar class we can be sure that our existing application won't be affected.
+
+==== [L]iskov Substitution Principle
+
+In software engineering terms, you should be able to substitute a class with any of its subclasses, without breaking the system.
+Putting it more simply, Simply put, if class A is a subtype of class B, then we should be able to replace B with A without disrupting the behavior of our program.
+
+[source,java]
+----
+public interface Car {
+
+    void turnOnEngine();
+    void accelerate();
+}
+----
+
+Let's implement our interface and provide some code for the methods:
+
+[source,java]
+----
+public class MotorCar implements Car {
+
+    private Engine engine;
+
+    //Constructors, getters + setters
+
+    public void turnOnEngine() {
+        //turn on the engine!
+        engine.on();
+    }
+
+    public void accelerate() {
+        //move forward!
+        engine.powerOn(1000);
+    }
+}
+----
+
+As our code describes, we have an engine that we can turn on, and we can increase the power.
+But wait, its 2019, and Elon Musk has been a busy man.
+
+We are now living in the era of electric cars:
+
+[source,java]
+----
+public class ElectricCar implements Car {
+
+    public void turnOnEngine() {
+        throw new AssertionError("I don't have an engine!");
+    }
+
+    public void accelerate() {
+        //this acceleration is crazy!
+    }
+}
+----
+
+By throwing a car without an engine into the mix, we are inherently changing the behavior of our program.
+This is a blatant violation of Liskov substitution and is a bit harder to fix than our previous 2 principles.
+
+One possible solution would be to rework our model into interfaces that take into account the engine-less state of our Car.
+
+==== [I]nterface Segregation Principle
+
+Clients should not be forced to depend upon the interfaces that they do not use, and it simply means that larger interfaces should be split into smaller ones.
+By doing so, we can ensure that implementing classes only need to be concerned about the methods that are of interest to them.
+
+For this example, we're going to try our hands as zookeepers.
+And more specifically, we'll be working in the bear enclosure.
+
+Let's start with an interface that outlines our roles as a bear keeper:
+
+[source,java]
+----
+public interface BearKeeper {
+    void washTheBear();
+    void feedTheBear();
+    void petTheBear();
+}
+----
+
+As avid zookeepers, we're more than happy to wash and feed our beloved bears.
+However, we're all too aware of the dangers of petting them.
+Unfortunately, our interface is rather large, and we have no choice than to implement the code to pet the bear.
+
+Let's fix this by splitting our large interface into 3 separate ones:
+
+[source,java]
+----
+public interface BearCleaner {
+    void washTheBear();
+}
+
+public interface BearFeeder {
+    void feedTheBear();
+}
+
+public interface BearPetter {
+    void petTheBear();
+}
+----
+
+Now, thanks to interface segregation, we're free to implement only the methods that matter to us:
+
+[source,java]
+----
+public class BearCarer implements BearCleaner, BearFeeder {
+
+    public void washTheBear() {
+        //I think we missed a spot...
+    }
+
+    public void feedTheBear() {
+        //Tuna Tuesdays...
+    }
+}
+----
+
+And finally, we can leave the dangerous stuff to the crazy people:
+
+[source,java]
+----
+public class CrazyPerson implements BearPetter {
+
+    public void petTheBear() {
+        //Good luck with that!
+    }
+}
+----
+
+==== [D]ependency Inversion Principle
+
+The principle of Dependency Inversion refers to the decoupling of software modules.
+This way, instead of high-level modules depending on low-level modules, both will depend on abstractions.
+
+To demonstrate this, let's go old-school and bring to life a Windows 98 computer with code:
+
+[source,java]
+----
+public class Windows98Machine {
+
+    private final StandardKeyboard keyboard;
+    private final CrtMonitor monitor;
+
+    public Windows98Machine() {
+        monitor = new CrtMonitor();
+        keyboard = new StandardKeyboard();
+    }
+}
+----
+
+This code will work, and we'll be able to use the StandardKeyboard and CrtMonitor freely within our Windows98Computer class.
+Problem solved?
+Not quite.
+By declaring the StandardKeyboard and CrtMonitor with the new keyword, we've tightly coupled these 3 classes together.
+
+Let's decouple our machine from the StandardKeyboard and CrtMonitor by adding a more general Keyboard and monitor interface and using this in our class:
+
+[source,java]
+----
+public interface Keyboard { }
+
+public interface Monitor { }
+----
+
+[source,java]
+----
+public class Windows98Machine{
+
+    private final Keyboard keyboard;
+    private final Monitor monitor;
+
+    public Windows98Machine(Keyboard keyboard, Monitor monitor) {
+        this.keyboard = keyboard;
+        this.monitor = monitor;
+    }
+}
+----
+
+Let's also modify our WirelessKeyboard and LedMonitor class to implement the Keyboard and Monitor interface so that it's suitable for injecting into the Windows98Machine class:
+
+[source,java]
+----
+public class WirelessKeyboard implements Keyboard { }
+
+public class LedMonitor implements Monitor { }
+----
+
+Now our classes are decoupled and communicate through the Keyboard and Monitor abstraction.
+If we want, we can easily switch out the type of keyboard and monitor in our machine with a different implementation of the interface.
+
+Excellent!
+We've decoupled the dependencies and are free to test our Windows98Machine with whichever testing framework we choose.
+
+=== ACID (key principles of a transnational system)
+
+In the context of transaction processing, the acronym ACID refers to the four key properties of a transaction: atomicity, consistency, isolation, and durability.
+
+==== [A]tomic
+
+All changes to data are performed as if they are a single operation, that is, all the changes are performed, or none of them are.
+For example, in an application that transfers funds from one account to another, the atomicity property ensures that, if a debit is made successfully from one account, the corresponding credit is made to the other account.
+
+==== [C]onsistent
+
+Data is in a consistent state when a transaction starts and when it ends.
+For example, in an application that transfers funds from one account to another, the consistency property ensures that the total value of funds in both the accounts is the same at the start and end of each transaction.
+
+==== [I]solation
+
+The intermediate state of a transaction is invisible to other transactions.
+As a result, transactions that run concurrently appear to be serialized.
+For example, in an application that transfers funds from one account to another, the isolation property ensures that another transaction sees the transferred funds in one account or the other, but not in both, nor in neither.
+
+==== [D]urability
+
+After a transaction successfully completes, changes to data persist and are not undone, even in the event of a system failure.
+For example, in an application that transfers funds from one account to another, the durability property ensures that the changes made to each account will not be reversed.
+
+.DBMS transaction
+image::../../resources/design-principles/transaction_states.png[DBMS transaction state diagram,600,200]
+
+

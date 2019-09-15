@@ -1,8 +1,5 @@
 package com.topics.structural;
 
-/**
- * Link : https://www.youtube.com/watch?v=Y7DYhe6efQY&list=PLsyeobzWxl7r2ZX1fl-7CKnayxHJA_1ol&index=9
- */
 public class Adapter implements Pen {
 
     private PilotPen pilotPen = new PilotPen();

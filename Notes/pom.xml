@@ -14,8 +14,8 @@
     <packaging>pom</packaging>
 
     <build>
-        <defaultGoal>process-resources</defaultGoal>
         <plugins>
+            <!-- Plugin for ASCIDOC documents-->
             <plugin>
                 <groupId>org.asciidoctor</groupId>
                 <artifactId>asciidoctor-maven-plugin</artifactId>
@@ -28,15 +28,19 @@
                     </dependency>
                 </dependencies>
 
+                <!--Adciidoc source and pdf/html target-->
                 <configuration>
                     <sourceDirectory>asciidoc/index</sourceDirectory>
-                    <outputDirectory>pdf</outputDirectory>
+                    <outputDirectory>target/html-pdf</outputDirectory>
                     <!-- Attributes common to all output formats -->
                     <attributes>
                         <sourcedir>${project.build.sourceDirectory}</sourcedir>
                     </attributes>
                 </configuration>
 
+                <!--
+                Generate PDF from ascii doc files
+                -->
                 <executions>
                     <execution>
                         <id>generate-pdf-doc</id>
@@ -55,6 +59,64 @@
                                 <idprefix/>
                                 <idseparator>-</idseparator>
                             </attributes>
+                        </configuration>
+                    </execution>
+
+                    <!--
+                    Generate HTML from ascii doc files
+                    -->
+                    <execution>
+                        <id>generate-html-doc</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>html5</backend>
+                            <sourceHighlighter>rouge</sourceHighlighter>
+                            <outputFile>LearnByExample.html</outputFile>
+                            <attributes>
+                                <imagesdir>asciidoc/resources</imagesdir>
+                                <toc>left</toc>
+                                <icons>font</icons>
+                                <sectanchors>true</sectanchors>
+                                <!-- set the idprefix to blank -->
+                                <idprefix/>
+                                <idseparator>-</idseparator>
+                                <docinfo1>true</docinfo1>
+                            </attributes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--
+            NOTE: Use the maven-resources-plugin if there are assets outside the AsciiDoc source folder
+            that need to be copied to the generated-docs. The Maven plugin automatically copies
+            non-AsciiDoc files in the AsciiDoc source folder to generated-docs.
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven-resources-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>copy-asciidoc-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <resources>
+                                <resource>
+                                    <directory>asciidoc</directory>
+                                    <includes>
+                                        <include>**/*.jpg</include>
+                                        <include>**/*.png</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                            <outputDirectory>target/html-pdf</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>

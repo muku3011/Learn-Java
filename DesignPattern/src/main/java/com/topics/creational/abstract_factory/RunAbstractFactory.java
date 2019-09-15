@@ -1,6 +1,6 @@
 package com.topics.creational.abstract_factory;
 
-public class AbstractFactoryPatternDemo {
+public class RunAbstractFactory {
     public static void main(String[] args) {
 
         //get shape factory

@@ -3,8 +3,8 @@ package com.interview.questions;
 public class StringQuestion{
 
     /**
-     * Replace each character with the next character, e.g., b->c, spg->tqh
-     * If next character is a vowel make it capital, e.g., d->E, demo->Efnp
+     * Replace each character with the next character
+     * If next character is a vowel make it capital, e.g.,
      * @param stringSample, string sample for which we want to perform this operation
      * @return string object whose letters are moved.
      */

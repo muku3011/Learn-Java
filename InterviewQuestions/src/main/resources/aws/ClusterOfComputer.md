@@ -11,7 +11,7 @@ IDs are guaranteed to be unique within their own application type, but not acros
 Each device should be assigned two applications at once. one foreground application and one background application.
 Devices have limited amounts of memory and cannot execute applications that require more memory than the available memory.
 The goal of the system is to maximize the total utilization of the memory of a given device.
-A foreground/background application pair is considered to be optimal if there does not exist another pair that uses more memory than this pair,
+EagerInitialization foreground/background application pair is considered to be optimal if there does not exist another pair that uses more memory than this pair,
 and also has a total less than or equal to the total memory of the device. For example.
 If the device has 10MB memory, a foreground/background pair using a sum total of 9MB memory would be optimal if there does not exist a pair 
 that uses a sum total of 10 MB. but would not be optimal if such a pair did exist. 

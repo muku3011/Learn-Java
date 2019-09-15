@@ -6,15 +6,15 @@ import java.util.TreeMap;
 /**
  * A TreeMap contains values based on the key. It implements the *NavigableMap* interface and extends AbstractMap class.
  * It contains only unique elements.
- * It cannot have null key but can have multiple null values. <===
- * It is same as HashMap instead maintains ascending order. <===
+ * It cannot have null key but can have multiple null values.
+ * It is same as HashMap instead maintains ascending order.
  *
  */
 public class TreeMapExample
 {
-	private TreeMap<Integer,String> treeMap=new TreeMap<Integer,String>();  
-	
+
 	public TreeMapExample() {
+		TreeMap<Integer, String> treeMap = new TreeMap<>();
 		treeMap.put(0, "Mukesh");
 		treeMap.put(1, "Kusum");
 		treeMap.put(2, "Prateek");
