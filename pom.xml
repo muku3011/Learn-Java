@@ -15,7 +15,6 @@
         <module>DataStructure</module>
         <module>DesignPattern</module>
         <module>MultiThreading</module>
-        <module>InterviewQuestions</module>
         <module>Notes</module>
     </modules>
 

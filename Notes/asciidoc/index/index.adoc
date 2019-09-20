@@ -2,6 +2,7 @@
 :author: Mukesh Joshi
 :email: mukesh.bciit@gmail.com
 :toc:
+:toclevels: 3
 :toc-placement: preamble
 :doctype: book
 

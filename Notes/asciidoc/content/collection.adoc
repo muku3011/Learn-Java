@@ -12,7 +12,7 @@ It's default/natural sorting.
 Comparator interface provide different ways of sorting.
 It's custom sorting.
 
-==== Comparable vs Comparator
+=== Comparable vs Comparator
 
 * We should implement java Comparator interface to provide different ways of sorting.
 * Comparable interface can be used to provide single way of sorting whereas, Comparator interface is used to provide different ways of sorting.
@@ -62,25 +62,21 @@ image::../../resources/collection/complexity.png[Complexity,600,200]
 
 .Collection complexity table:
 |===
-.2+| Collection 4+| Time complexity | Space complexity .2+| Remark
-| Add /offer /push /pull | Remove /poll /pop | Get /peek | Contains | All
+.3+| Collection 8+| Time complexity | Space complexity |
+4+|Average 4+|Worst| Worst | Remark
+| Access | Search | Insertion | Deletion | Access | Search | Insertion | Deletion | All |
 
-| Array* | O(1) | O(n) | O(1) | O(n) | - | -
-| Vector | O(1) | O(n) | O(n) | O(n) | - | -
-| ArrayList | O(n) | O(n) | O(1) | O(n) | - | -
-| LinkedList | O(1)  | O(1)  | O(n)  | O(n)  | - | -
-| PriorityQueue | - | - | - | - | - | -
-| HashSet | O(1) | O(1) | O(1) | O(1) | - | -
-| LinkedHashSet | - | - | - | - | - | -
-| TreeSet | - | - | - | - | - | -
-| HashMap* | O(1) | O(1) | O(1) | O(1) | - | -
-| LinkedHashMap* | - | - | - | - | - | -
-| TreeMap* | O(log (n)) | O(log (n)) | O(log (n)) | O(log (n)) | - | -
-| Hashtable* | - | - | - | - | - | -
+| Array | O(1) | O(n) | O(n) | O(n) | O(1) | O(n) | O(n) | O(n) | O(n) | -
+| SingleLinkedList | O(n) | O(n) | O(1) | O(1) | O(n) | O(n) | O(1) | O(1) | O(n) |
+| ArrayList | | | | | | | | | |
+| LinkedList | | | | | | | | | |
+| PriorityQueue | | | | | | | | | |
+| HashSet | | | | | | | | | |
+| LinkedHashSet | | | | | | | | | |
+| TreeSet | | | | | | | | | |
+| HashMap | | | | | | | | | |
+| LinkedHashMap | | | | | | | | | |
+| TreeMap | | | | | | | | | |
+| Hashtable | | | | | | | | | |
 
 |===
-
-==== Reference:
-
-** https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html
-** https://adrianmejia.com/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#DoublyLinkedList.add
