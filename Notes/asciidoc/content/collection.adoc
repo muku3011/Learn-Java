@@ -2,17 +2,13 @@
 
 == Collection
 
-=== Comparable
+=== Comparable vs Comparator
 
-If we want to sort java object array or list, we need to implement java Comparable interface.
+*Comparable* is used when we want to sort java object array or list, we need to implement java Comparable interface.
 It's default/natural sorting.
 
-=== Comparator
-
-Comparator interface provide different ways of sorting.
+*Comparator* interface provide different ways of sorting.
 It's custom sorting.
-
-=== Comparable vs Comparator
 
 * We should implement java Comparator interface to provide different ways of sorting.
 * Comparable interface can be used to provide single way of sorting whereas, Comparator interface is used to provide different ways of sorting.
@@ -20,45 +16,6 @@ It's custom sorting.
 * Comparable interface is in java.lang package whereas Comparator interface is present in java.util package.
 * We don’t need to make any code changes at client side for using Comparable, Arrays.sort() or Collection.sort() methods automatically uses the compareTo() method of the class.
 * For Comparator, client needs to provide the Comparator class to use in compare() method.
-
-=== Space & Time Complexity
-
-Process of determining a formula for prediction of how much memory space will be required for the successful execution of the algorithm.
-The memory space we generally consider is the space of primary memory.
-
-Process of determining a formula for total time required towards execution of the algorithm.
-This calculation will be independent of implementation details and programming language.
-
-==== O(1)/Constant Complexity
-
-Constant.
-This means irrelevant of the size of the data set the algorithm will always take a constant time.
-1 item takes 1 second, 10 items takes 1 second, 100 items takes 1 second.
-It always takes the same amount of time.
-
-==== O(log n)/Logarithmic Complexity:
-
-Not as good as constant, but still pretty good.
-The time taken increases with the size of the data set, but not proportionately so.
-This means the algorithm takes longer per item on smaller datasets relative to larger ones.
-1 item takes 1 second, 10 items takes 2 seconds, 100 items takes 3 seconds.
-If your dataset has 10 items, each item causes 0.2 seconds latency.
-If your dataset has 100, it only takes 0.03 seconds extra per item.
-This makes log n algorithms very scalable.
-
-==== O(n)/Linear Complexity:
-
-The larger the data set, the time taken grows proportionately. 1 item takes 1 second, 10 items takes 10 seconds, 100 items takes 100 seconds.
-
-==== O(n log n):
-
-A nice combination of the previous two.
-Normally there’s 2 parts to the sort, the first loop is O(n), the second is O(log n), combining to form O(n log n) 1 item takes 2 seconds, 10 items takes 12 seconds, 100 items takes 103 seconds.
-
-.Complexity graph
-image::../../resources/collection/complexity.png[Complexity,600,200]
-
-<<<
 
 .Collection complexity table:
 |===
@@ -80,3 +37,5 @@ image::../../resources/collection/complexity.png[Complexity,600,200]
 | Hashtable | | | | | | | | | |
 
 |===
+
+<<<

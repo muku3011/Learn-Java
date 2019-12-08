@@ -1,0 +1,33 @@
+<<<
+
+== Data Structure
+
+=== Array
+
+* Contiguous block in memory.
+* Every element occupies the same amount of space in memory.
+* If an array starts at memory address A, and size of each element in the array is S. We can calculate the memory address of the i^th^ element by using the following expression: A + i * S
+* Therefore, if we know the index of an element, the time to retrieve the element will be same, no matter where it is in the array.
+
+==== Retrieve an Element from an Array
+
+* Multiply the Array element size(uniform) by the index.
+* Get the start address of the array.
+* Add the start address to the result of the multiplication.
+
+
+.Time complexity
+|===
+| Operation | Complexity
+
+| Retrieve with index | O(1)
+| Retrieve without index | O(n)
+| Add an element to a full array | O(n)
+| Add an element to the end of an array (has space) | O(1)
+| Insert or update an element at an specific index | O(1)
+| Delete an element by setting it to default values, e.g., null, 0,.. | O(1)
+| Delete an element by shifting elements | O(n)
+|===
+
+
+<<<

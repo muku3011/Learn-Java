@@ -318,4 +318,4 @@ For example, in an application that transfers funds from one account to another,
 .DBMS transaction
 image::../../resources/design-principles/transaction_states.png[DBMS transaction state diagram,600,200]
 
-
+<<<

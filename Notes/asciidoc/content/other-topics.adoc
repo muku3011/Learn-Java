@@ -55,3 +55,5 @@ We can easily make it shallow or deep based on the requirement.
 ==== Copy factory
 
 It's similar to copy constructor, only change is in place of constructor we create a static method to copy an object.
+
+<<<

@@ -1,0 +1,85 @@
+<<<
+
+== Algorithms
+
+=== Space & Time Complexity
+
+Process of determining a formula for prediction of how much memory space will be required for the successful execution of the algorithm.
+The memory space we generally consider is the space of primary memory.
+
+Process of determining a formula for total time required towards execution of the algorithm.
+This calculation will be independent of implementation details and programming language.
+
+==== O(1) Constant Complexity
+
+Constant.
+This means irrelevant of the size of the data set the algorithm will always take a constant time.
+1 item takes 1 second, 10 items takes 1 second, 100 items takes 1 second.
+It always takes the same amount of time.
+
+==== O(log n) Logarithmic Complexity:
+
+Not as good as constant, but still pretty good.
+The time taken increases with the size of the data set, but not proportionately so.
+This means the algorithm takes longer per item on smaller data sets relative to larger ones.
+1 item takes 1 second, 10 items takes 2 seconds, 100 items takes 3 seconds.
+If your data set has 10 items, each item causes 0.2 seconds latency.
+If your data set has 100, it only takes 0.03 seconds extra per item.
+This makes log n algorithms very scalable.
+
+==== O(n) Linear Complexity:
+
+The larger the data set, the time taken grows proportionately. 1 item takes 1 second, 10 items takes 10 seconds, 100 items takes 100 seconds.
+
+==== O(n log n):
+
+A nice combination of the previous two.
+Normally there’s 2 parts to the sort, the first loop is O(n), the second is O(log n), combining to form O(n log n) 1 item takes 2 seconds, 10 items takes 12 seconds, 100 items takes 103 seconds.
+
+==== O(n2):
+
+TODO
+
+.Complexity graph
+image::../resources/algorithm/computational_complexity.png[Complexity,600,200]
+
+.Complexity table in best-to-worst order:
+|===
+| Big-O | Type | Description
+
+| O(1) | Constant time | Same time always, doesn't depends on the input
+| O(log n) | Logarithmic time | -
+| O(n) | Linear time | Time will increase in linear fashion based on the input
+| O(n log n) | n log-star n ?| -
+| O(n^2^) | Quadratic | -
+|===
+
+Notes! footnote:disclaimer[log n is actually logarithm to the base 2,so O(log n) can also be written as O(log~2~n) and O(n log n) can be written as O(n log~2~n).]
+
+=== Sorting algorithms:
+
+Notes! footnote:disclaimer[Read Array data structure befor starting with sorting algorithms <<data-structure.adoc#Array,Array>>.]
+
+==== Stable vs UnStable Sort Algorithms
+
+A sorting algorithm is said to be stable if two objects with equal keys appear in the same order in the sorted output as they appear in the unsorted input.
+Whereas a sorting algorithm is said to be unstable if there are two or more objects with equal keys which don't appear in same order before and after sorting.
+
+==== Bubble sort
+
+* Performance degrade shortly as elements increases.
+* O(n^2^) time complexity - quadratic
+* It takes 100 steps to sort 10 items, 10,000 steps to sort 100 items, 1,000,000 steps to sort 1000 items.
+* Algorithm degrades quickly.
+* In place algorithm (no need to create new array, same array can be used to perform all the steps).
+* Stable sort algorithm
+
+==== Selection sort
+
+* In place algorithm (no need to create new array, same array can be used to perform all the steps).
+* O(n^2^) time complexity - quadratic
+* It takes 100 steps to sort 10 items, 10,000 steps to sort 100 items, 1,000,000 steps to sort 1000 items.
+* Doesn't require as much as swapping as bubble sort.
+* Unstable sort algorithm
+
+<<<

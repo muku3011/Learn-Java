@@ -4,7 +4,7 @@ package com.topics.creational.factory;
  * In Factory pattern, we create object without exposing the creation
  * logic to the client and refer to newly created object using a common interface.
  */
-public class Factory {
+class Factory {
 
     OS getInstance(String osType) {
         switch (osType) {
