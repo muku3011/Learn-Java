@@ -1,0 +1,75 @@
+<<<
+
+== Java Basics
+
+=== Assertion
+
+* Two types of assertion, simple and really simple
+* The difference between the two is that the simple version adds a second expression separated from the first (boolean expression) by a colon—this expression's string value is added to the stack trace.
+Both versions throw an immediate AssertionError.
+* Example:
+** java -ea MainClass
+** java -enableassertions MainClass
+** java -da MainClass
+** java -disableassertions MainClass
+* Don’t Use Assertions to Validate Arguments to a public Method.
+* Do Use Assertions to Validate Arguments to a private Method.
+
+https://github.com/muku3011/LearnByExample/blob/master/CoreJava/src/main/java/com/topics/assertion/AssertionExample.java[Assertion example]
+
+=== Object cloning
+
+* To use java object clone() method, we have to implement the marker interface java.lang.Cloneable so that it won’t throw CloneNotSupportedException at runtime.
+* Also Object clone is a protected method, so we will have to override it to use with other classes.
+* Notice that we are using Object clone() implementation, so we have to implement Cloneable interface.
+* Default implementation of java clone object is using shallow copy.
+
+.Shallow Copy
+* Shallow copy is a method of copying an object to a new object.
+* In this method the fields of an old object X are copied to the new object Y.
+* While copying the object type field the reference is copied to Y i.e object Y will point to same location as pointed out by X.
+* If the field value is a primitive type it copies the value of the primitive type.
+* Therefore, any changes made in referenced objects in object X or Y will be reflected in other object.
+[source,java]
+----
+class ShallowCopy implements Cloneable {
+
+    int id;
+    String name;
+    Reference reference = new Reference();
+
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+}
+----
+
+.Deep Copy
+* If we want to create a deep copy of object X and place it in a new object Y, then new copy of any referenced objects fields are created and these references are placed in object Y.
+* This means any changes made in referenced object fields in the object X or Y will be reflected only in that object and not in the other.
+* In below example, we create a deep copy of object.
+* A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields.
+* A deep copy occurs when an object is copied along with the objects to which it refers.
+[source,java]
+----
+class DeepCopy implements Cloneable {
+
+    int id;
+    String name;
+    Reference reference = new Reference();
+
+    public Object clone() throws CloneNotSupportedException {
+        // Assign the shallow copy to new reference variable deepCopy
+        DeepCopy deepCopy = (DeepCopy) super.clone();
+
+        deepCopy.reference = new Reference();
+
+        // Create a new object for the field reference
+        // and assign it to shallow copy obtained,
+        // to make it a deep copy
+        return deepCopy;
+    }
+}
+----
+
+https://github.com/muku3011/LearnByExample/tree/master/CoreJava/src/main/java/com/topics/cloning[Object Cloning example]

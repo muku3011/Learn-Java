@@ -21,9 +21,9 @@ public class CopyFactory {
 
 class Students {
 
-    private String name;
-    private int age;
-    private Set<String> subjects;
+    private final String name;
+    private final int age;
+    private final Set<String> subjects;
 
     public Students(String name, int age, Set<String> subjects) {
         this.name = name;

@@ -1,0 +1,31 @@
+<<<
+
+== Git commands:
+
+=== Clone an existing git repo from the server:
+* git clone <Git server url>
+
+=== Initialize a new directory as git repository:
+* git init
+
+=== Stage files for git commit:
+* git add <file name>
+
+=== Commit files to git:
+* git commit -m <commit message inside "">
+
+=== Add local git repo to remote:
+* Create a new empty repository in remote and copy the remote repository URL.
+* git remote add origin <remote repository URL> [Sets the new remote]
+* git remote -v [Verify the new remote URL]
+
+=== Stage and commit together
+Tell the command to automatically stage files that have been modified and deleted, but new files you have not told Git about are not affected.):
+
+* git commit -a -m <commit message inside "">
+
+=== Remove a file:
+* git rm <file name>
+
+=== Set upstream
+* git push --set-upstream origin master

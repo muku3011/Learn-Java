@@ -1,7 +1,7 @@
 package com.topics.collection.list;
 
 /**
- * Array can contains primitives data types as well as objects of a class depending on the definition of array.
+ * Array can contain primitives data types as well as objects of a class depending on the definition of array.
  * In case of primitives data types, the actual values are stored in contiguous memory locations.
  * In case of objects of a class, the actual objects are stored in heap segment.
  *

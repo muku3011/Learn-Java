@@ -6,12 +6,12 @@
 :toc-placement: preamble
 :doctype: book
 
+include::../content/basics.adoc[]
 include::../content/algorithm.adoc[]
 include::../content/data-structure.adoc[]
 include::../content/design-principle.adoc[]
 include::../content/design-pattern.adoc[]
 include::../content/collection.adoc[]
-include::../content/other-topics.adoc[]
 include::../content/multi-threading.adoc[]
 include::../content/spring.adoc[]
 include::../content/microservice.adoc[]

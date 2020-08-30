@@ -8,7 +8,7 @@ package com.topics.cloning;
 public class CloningExample {
 
     public static void main(String[] args) throws CloneNotSupportedException {
-        shallowCopy();
+        // shallowCopy();
 
         deepCopy();
     }
