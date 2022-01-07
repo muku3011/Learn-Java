@@ -25,7 +25,7 @@
         <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
         <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
         <junit.jupiter.version>5.4.2</junit.jupiter.version>
-        <h2.database.version>1.4.199</h2.database.version>
+        <h2.database.version>2.0.206</h2.database.version>
 
         <asciidoctor.maven.plugin.version>2.0.0-RC.1</asciidoctor.maven.plugin.version>
         <asciidoctorj.pdf.version>1.5.0-alpha.18</asciidoctorj.pdf.version>
